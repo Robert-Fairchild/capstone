@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+class V1::PostsController < ApplicationController
 
   def index 
     posts = Post.all.order(:id => :asc)

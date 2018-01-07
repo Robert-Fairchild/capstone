@@ -9,12 +9,9 @@ class V1::CommentsController < ApplicationController
   end 
 
   def show 
-
     comment = Comment.find_by(id: params[:id])
     render json: comment.as_json
   end 
-
-
 
   def update
     comment = Comment.find_by(id: params[:id])
@@ -25,17 +22,13 @@ class V1::CommentsController < ApplicationController
     else 
       render json: {errors: comment.errors.full_messages}, status: :bad_request
     end 
-
   end
 
   def destroy
     comment = Comment.find_by(id: params[:id])
     comment.destroy
     render json: {message: "comment successfully destroyed!"}
-
   end 
-
-
 end
 
 

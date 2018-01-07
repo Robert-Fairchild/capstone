@@ -31,12 +31,6 @@ class V1::UsersController < ApplicationController
     user = user.find_by(id: params[:id])
     user.destroy
     render json: {message: "User successfully deleted!"}
-
   end
-
-
-
-
-
 end
 

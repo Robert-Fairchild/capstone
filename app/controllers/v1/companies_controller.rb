@@ -10,12 +10,6 @@ class V1::CompaniesController < ApplicationController
     render json: companies.as_json
   end 
 
-  
-
-
-
-
-
   def show
 
     company = Company.find_by(id: params[:id])
