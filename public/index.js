@@ -4,10 +4,17 @@ var HomePage = {
   template: "#home-page",
   data: function() {
     return {
-      message: "Welcome to CanIWorkHere.com!"
+      message: "Welcome to CanIWorkHere.com!",
+      posts: []
     };
   },
-  created: function() {},
+  created: function() {
+    axios.get("/v1/posts").then(
+      function(response) {
+        this.posts = response.data;
+      }.bind(this)
+    );
+  },
   methods: {},
   computed: {}
 };
@@ -87,12 +94,50 @@ var LogoutPage = {
   }
 };
 
+var NewPostPage = {
+  template: "#new-post-page",
+  data: function() {
+    return {
+      title: "",
+      company: "",
+      crime_category: "",
+      body: "",
+      errors: [],
+      companies: [],
+      crimeCategories: []
+    };
+  },
+  created: function() {},
+  methods: {
+    submit: function() {
+      var params = {
+        title: this.title,
+        company: this.company,
+        crime_category: this.crime_category,
+        body: this.body
+      };
+      axios
+        .post("/v1/posts", params)
+        .then(function(response) {
+          router.push("/");
+        })
+        .catch(
+          function(error) {
+            this.errors = error.response.data.errors;
+            router.push("/login");
+          }.bind(this)
+        );
+    }
+  }
+};
+
 var router = new VueRouter({
   routes: [
     { path: "/", component: HomePage },
     { path: "/signup", component: SignupPage },
     { path: "/login", component: LoginPage },
-    { path: "/logout", component: LogoutPage }
+    { path: "/logout", component: LogoutPage },
+    { path: "/posts/create", component: NewPostPage }
   ],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };
