@@ -131,6 +131,25 @@ var NewPostPage = {
   }
 };
 
+var CompanyIndexPage = {
+  template: "#company-index-page",
+  data: function() {
+    return {
+      message: "Welcome to CanIWorkHere.com!",
+      companies: []
+    };
+  },
+  created: function() {
+    axios.get("/v1/companies").then(
+      function(response) {
+        this.companies = response.data;
+      }.bind(this)
+    );
+  },
+  methods: {},
+  computed: {}
+};
+
 var router = new VueRouter({
   routes: [
     { path: "/", component: HomePage },
