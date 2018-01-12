@@ -26,6 +26,13 @@ Rails.application.routes.draw do
     get "/crime_categories/:id" => "crime_categories#show"
     patch "/crime_categories/:id" => "crime_categories#update"
     delete "/crime_categories/:id" => "crime_categories#delete"
+
+    get "/comments" => "comments#index"
+    post "/comments" => "comments#create"
+    get "/comments/:id" => "comments#show"
+    patch "/comments/:id" => "comments#update"
+    delete "/comments/:id" => "comments#delete"
+
   end
 end
 
