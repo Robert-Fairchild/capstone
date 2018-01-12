@@ -22,6 +22,9 @@
       <a href="/#/login">Login</a>
       <a href="/#/logout">Logout</a>
       <a href="/#/posts/create">Create New Post</a>
+      <a href="/#/posts">View All Posts</a>
+      <a href="/#/companies">View All Companies</a>
+      <a href="/#/crime_categories">View Crime Categories</a>
       <router-view></router-view>
     </div>
   </div> 
@@ -29,6 +32,12 @@
 </html>
 
 <template id="home-page">
+  <div class="vue-component">
+    <h1>{{ message }}</h1>
+</template>
+
+
+<template id="posts-index-page">
   <div class="vue-component">
     <h1>{{ message }}</h1>
     <div v-for="post in posts">
@@ -39,6 +48,29 @@
       <p> {{ post.body }} </p>
       <p> {{ post.created_at }} </p>
       
+    </div>
+  </div>
+</template>
+
+<template id="company-index-page">
+  <div class="vue-component">
+    <h1>{{ message }}</h1>
+    <div v-for="company in companies">
+      <p> {{ company.name }}</p>
+      <p> {{ company.description }} </p>
+      <p> {{ company.hire_felons }} </p>
+      <p> {{ company.number_of_posts }}</p>
+    </div>
+  </div>
+</template>
+
+<template id="crime-category-index-page">
+  <div class="vue-component">
+    <h1>{{ message }}</h1>
+    <div v-for="crime_category in crime_categories">
+      <p> {{ crime_category.name }}</p>
+      <p> {{ crime_category.description }} </p>
+      <p> {{ crime_category.number_of_posts }}</p>
     </div>
   </div>
 </template>

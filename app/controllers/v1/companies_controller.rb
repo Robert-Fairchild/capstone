@@ -7,7 +7,9 @@ class V1::CompaniesController < ApplicationController
     if company_search_terms
       companies = companies.where("name ILIKE ?", "%" + company_search_terms + "%")
     end
+     
     render json: companies.as_json
+ 
   end 
 
   def show

@@ -2,7 +2,7 @@ class V1::CommentsController < ApplicationController
 
   def create
     comment = Comment.new(
-        post_id: current_post.id,
+        post_id: 1, #placeholder
         user_id: current_user.id,
         body: params[:body],
       )
@@ -15,7 +15,7 @@ class V1::CommentsController < ApplicationController
 
   def update
     comment = Comment.find_by(id: params[:id])
-    comment.post_id = current_post.id,
+    comment.post = 1, #placeholder
     comment.body = params[:body] || comment.body
     if comment.save
       render json: comment.as_json

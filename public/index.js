@@ -4,8 +4,7 @@ var HomePage = {
   template: "#home-page",
   data: function() {
     return {
-      message: "Welcome to CanIWorkHere.com!",
-      posts: []
+      message: "Welcome to CanIWorkHere.com!"
     };
   },
   created: function() {
@@ -131,11 +130,30 @@ var NewPostPage = {
   }
 };
 
+var PostsIndexPage = {
+  template: "#posts-index-page",
+  data: function() {
+    return {
+      message: "Everyones posts!",
+      posts: []
+    };
+  },
+  created: function() {
+    axios.get("/v1/posts").then(
+      function(response) {
+        this.posts = response.data;
+      }.bind(this)
+    );
+  },
+  methods: {},
+  computed: {}
+};
+
 var CompanyIndexPage = {
   template: "#company-index-page",
   data: function() {
     return {
-      message: "Welcome to CanIWorkHere.com!",
+      message: "Main Company List",
       companies: []
     };
   },
@@ -150,13 +168,35 @@ var CompanyIndexPage = {
   computed: {}
 };
 
+var CrimeCategoryIndexPage = {
+  template: "#crime-category-index-page",
+  data: function() {
+    return {
+      message: "Crime Category List",
+      crime_categories: []
+    };
+  },
+  created: function() {
+    axios.get("/v1/crime_categories").then(
+      function(response) {
+        this.crime_categories = response.data;
+      }.bind(this)
+    );
+  },
+  methods: {},
+  computed: {}
+};
+
 var router = new VueRouter({
   routes: [
     { path: "/", component: HomePage },
     { path: "/signup", component: SignupPage },
     { path: "/login", component: LoginPage },
     { path: "/logout", component: LogoutPage },
-    { path: "/posts/create", component: NewPostPage }
+    { path: "/posts/create", component: NewPostPage },
+    { path: "/posts", component: PostsIndexPage },
+    { path: "/companies", component: CompanyIndexPage },
+    { path: "/crime_categories", component: CrimeCategoryIndexPage }
   ],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };
