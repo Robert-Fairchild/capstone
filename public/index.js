@@ -187,6 +187,24 @@ var CompanyIndexPage = {
   computed: {}
 };
 
+var ShowCompany = {
+  template: "#company-show-page",
+  data: function() {
+    return {
+      company: {}
+    };
+  },
+  created: function() {
+    axios.get("/v1/companies/" + this.$route.params.id).then(
+      function(response) {
+        this.company = response.data;
+      }.bind(this)
+    );
+  },
+  methods: {},
+  computed: {}
+};
+
 var CrimeCategoryIndexPage = {
   template: "#crime-category-index-page",
   data: function() {
@@ -206,6 +224,24 @@ var CrimeCategoryIndexPage = {
   computed: {}
 };
 
+var ShowCrimeCat = {
+  template: "#crime-cat-show-page",
+  data: function() {
+    return {
+      crime_category: {}
+    };
+  },
+  created: function() {
+    axios.get("/v1/crime_categories/" + this.$route.params.id).then(
+      function(response) {
+        this.crime_category = response.data;
+      }.bind(this)
+    );
+  },
+  methods: {},
+  computed: {}
+};
+
 var router = new VueRouter({
   routes: [
     { path: "/", component: HomePage },
@@ -215,8 +251,10 @@ var router = new VueRouter({
     { path: "/posts/create", component: NewPostPage },
     { path: "/posts/:id", component: ShowPost },
     { path: "/posts", component: PostsIndexPage },
+    { path: "/companies/:id", component: ShowCompany },
     { path: "/companies", component: CompanyIndexPage },
-    { path: "/crime_categories", component: CrimeCategoryIndexPage }
+    { path: "/crime_categories", component: CrimeCategoryIndexPage },
+    { path: "/crime_categories/:id", component: ShowCrimeCat }
   ],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };

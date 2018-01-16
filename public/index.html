@@ -72,9 +72,9 @@
             <li class="dropdown">
               <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown"> Companies <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="filter-category.html">Uber</a></li>
-                <li><a href="filter-author.html">Lyft</a></li>
-                <li><a href="filter-date.html">IBM</a></li>
+                <li><router-link to="companies/3">Uber</router-link></li>
+                <li><router-link to="companies/4">Lyft</router-link></li>
+                <li><router-link to="companies/2">IBM</router-link></li>
                 <li><router-link to="companies">View All Companies</router-link></li>
               </ul>
             </li>
@@ -86,7 +86,8 @@
                 <li><a href="post-video.html">Violent Crime</a></li>
                 <li><a href="post-video.html">Financial Crime</a></li>
                 <li><a href="post-video.html">Sex Offense</a></li>
-                <li><a href="post-video.html">All Categories</a></li>
+                <li><router-link to="crime_categories">All Categories</router-link></li>
+               
               </ul>
             </li>
             <li><a href="page-about.html">About</a></li>
@@ -108,6 +109,8 @@
         </div>
       </div>
     </div>
+
+
 
     
 
@@ -525,7 +528,7 @@
               <img src="img/technology/unsplash-2.jpg" class="img-responsive" />
               <div class="panel-body">
                 <div class="blog-post-meta">
-                  <span class="label label-light label-warning">Crime Cat Place Holder</span>
+                  <span class="label label-light label-warning">Post Cat Place Holder</span>
                   <p class="blog-post-date pull-right">{{ post.created_at }}</p>
                 </div>
                 <div class="blog-post-content">
@@ -656,12 +659,113 @@
 </template>
 
 <template id="company-index-page">
-  <div class="vue-component">
-     <div class="container blog-content">
+ <div class="vue-component">
+
+    <div class="container blog-content">
 
       <div class="row">
 
-        <div class="col-sm-3 blog-sidebar">
+        <div class="col-sm-8 blog-main">
+
+          <div class="row">
+            <div class="col-sm-12">
+              <section class="blog-post" v-for=" company in companies">
+                <div class="panel panel-default">
+                  <img src="img/travel/unsplash-2.jpg" class="img-responsive" />
+                  <div class="panel-body">
+                    <div class="blog-post-meta">
+                      <span class="label label-light label-success">number of posts placeholder</span>
+                      <p class="blog-post-date pull-right">{{ company.created_at }}</p>
+                    </div>
+                    <div class="blog-post-content">
+                      <a href="post-image.html">
+                        <h2 class="blog-post-title">{{  company.name }}</h2>
+                      </a>
+                      <p>{{ company.description }}</p>
+                      <router-link v-bind:to=" 'companies/' + company.id">Read more</router-link>
+                      <a class="blog-post-share pull-right" href="#">
+                        <i class="material-icons">&#xE80D;</i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </section><!-- /.blog-post -->
+              <section class="blog-post">
+                <div class="panel panel-default">
+                  <img src="img/travel/unsplash-3.jpg" class="img-responsive" />
+                  <div class="panel-body">
+                    <div class="blog-post-meta">
+                      <span class="label label-light label-success">Australia</span>
+                      <p class="blog-post-date pull-right">Januari 9, 2016</p>
+                    </div>
+                    <div class="blog-post-content">
+                      <a href="post-image.html">
+                        <h2 class="blog-post-title">I have arms for them</h2>
+                      </a>
+                      <p>Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem.</p>
+                      <a class="btn btn-info" href="post-image.html">Read more</a>
+                      <a class="blog-post-share pull-right" href="#">
+                        <i class="material-icons">&#xE80D;</i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </section><!-- /.blog-post -->
+              <section class="blog-post">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <div class="blog-post-meta">
+                      <span class="label label-light label-primary">Tips</span>
+                      <p class="blog-post-date pull-right">Februari 11, 2016</p>
+                    </div>
+                    <div class="blog-post-content">
+                      <a href="post-image.html">
+                        <h2 class="blog-post-title">In a glass of water</h2>
+                      </a>
+                      <p>Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem.</p>
+                      <p>Ut turpis felis, pulvinar a semper sed, adipiscing id dolor. Pellentesque auctor nisi id magna consequat sagittis. Curabitur dapibus enim sit amet elit pharetra.</p>
+                      <a class="btn btn-info" href="post-image.html">Read more</a>
+                      <a class="blog-post-share pull-right" href="#">
+                        <i class="material-icons">&#xE80D;</i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </section><!-- /.blog-post -->
+              <section class="blog-post">
+                <div class="panel panel-default">
+                  <img src="img/travel/unsplash-4.jpg" class="img-responsive" />
+                  <div class="panel-body">
+                    <div class="blog-post-meta">
+                      <span class="label label-light label-success">Australia</span>
+                      <p class="blog-post-date pull-right">January 24, 2016</p>
+                    </div>
+                    <div class="blog-post-content">
+                      <a href="post-image.html">
+                        <h2 class="blog-post-title">I glide and swan</h2>
+                      </a>
+                      <p>Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem.</p>
+                      <a class="btn btn-info" href="post-image.html">Read more</a>
+                      <a class="blog-post-share pull-right" href="#">
+                        <i class="material-icons">&#xE80D;</i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </section><!-- /.blog-post -->
+            </div>
+          </div>
+
+          <nav>
+            <ul class="pager">
+              <li><a class="withripple" href="#">Previous</a></li>
+              <li><a class="withripple" href="#">Next</a></li>
+            </ul>
+          </nav>
+
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
 
           <div class="sidebar-module">
             <div class="form-group">
@@ -684,15 +788,15 @@
                 <h4>Categories</h4>
                 <ol class="categories list-unstyled">
                   <li>
-                    <a class="label label-light label-success" href="filter-category.html">Recipes</a>
+                    <a class="label label-light label-success" href="filter-category.html">Australia</a>
                     <span class="label label-light label-default pull-right">8</span>
                   </li>
                   <li>
-                    <a class="label label-light label-warning" href="filter-category.html">Food</a>
+                    <a class="label label-light label-warning" href="filter-category.html">Europe</a>
                     <span class="label label-light label-default pull-right">5</span>
                   </li>
                   <li>
-                    <a class="label label-light label-info" href="filter-category.html">Drink</a>
+                    <a class="label label-light label-primary" href="filter-category.html">Tips</a>
                     <span class="label label-light label-default pull-right">9</span>
                   </li>
                 </ol>
@@ -753,32 +857,115 @@
           </div><!-- /.sidebar-module -->
 
         </div><!-- /.blog-sidebar -->
-      
-        <div class="col-sm-8 col-sm-offset-1 blog-main">
+
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+
+    
+
+
+  </div>
+</template>
+
+<template id="crime-category-index-page">
+  <div class="vue-component">
+
+    <div class="container blog-content">
+
+      <div class="row">
+
+        <div class="col-sm-8 blog-main">
 
           <div class="row">
             <div class="col-sm-12">
-              <section class="blog-post" v-for=" company in companies">
+              <section class="blog-post" v-for=" crime_category in crime_categories">
                 <div class="panel panel-default">
-                  <img src="img/food/unsplash-2.jpg" class="img-responsive" />
+                  <img src="img/travel/unsplash-2.jpg" class="img-responsive" />
                   <div class="panel-body">
                     <div class="blog-post-meta">
-                      <span class="label label-light label-success">company post amount placeholder </span>
-                      <p class="blog-post-date pull-right"> {{ company.created_at }}</p>
+                      <span class="label label-light label-success">number of posts placeholder</span>
+                      <p class="blog-post-date pull-right">{{ crime_category.created_at }}</p>
                     </div>
                     <div class="blog-post-content">
                       <a href="post-image.html">
-                        <h2 class="blog-post-title">{{ company.name }}</h2>
+                        <h2 class="blog-post-title">{{  crime_category.name }}</h2>
                       </a>
-                      <p>{{ company.description }}</p>
-                      <a class="btn btn-info" href="post-image.html">Dive Deeper</a>
+                      <p>{{ crime_category.description }}</p>
+                       <router-link v-bind:to=" 'crime_categories/' + crime_category.id">Read more</router-link>
                       <a class="blog-post-share pull-right" href="#">
                         <i class="material-icons">&#xE80D;</i>
                       </a>
                     </div>
                   </div>
                 </div>
-           
+              </section><!-- /.blog-post -->
+              <section class="blog-post">
+                <div class="panel panel-default">
+                  <img src="img/travel/unsplash-3.jpg" class="img-responsive" />
+                  <div class="panel-body">
+                    <div class="blog-post-meta">
+                      <span class="label label-light label-success">Australia</span>
+                      <p class="blog-post-date pull-right">Januari 9, 2016</p>
+                    </div>
+                    <div class="blog-post-content">
+                      <a href="post-image.html">
+                        <h2 class="blog-post-title">I have arms for them</h2>
+                      </a>
+                      <p>Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem.</p>
+                      <a class="btn btn-info" href="post-image.html">Read more</a>
+                      <a class="blog-post-share pull-right" href="#">
+                        <i class="material-icons">&#xE80D;</i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </section><!-- /.blog-post -->
+              <section class="blog-post">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <div class="blog-post-meta">
+                      <span class="label label-light label-primary">Tips</span>
+                      <p class="blog-post-date pull-right">Februari 11, 2016</p>
+                    </div>
+                    <div class="blog-post-content">
+                      <a href="post-image.html">
+                        <h2 class="blog-post-title">In a glass of water</h2>
+                      </a>
+                      <p>Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem.</p>
+                      <p>Ut turpis felis, pulvinar a semper sed, adipiscing id dolor. Pellentesque auctor nisi id magna consequat sagittis. Curabitur dapibus enim sit amet elit pharetra.</p>
+                      <a class="btn btn-info" href="post-image.html">Read more</a>
+                      <a class="blog-post-share pull-right" href="#">
+                        <i class="material-icons">&#xE80D;</i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </section><!-- /.blog-post -->
+              <section class="blog-post">
+                <div class="panel panel-default">
+                  <img src="img/travel/unsplash-4.jpg" class="img-responsive" />
+                  <div class="panel-body">
+                    <div class="blog-post-meta">
+                      <span class="label label-light label-success">Australia</span>
+                      <p class="blog-post-date pull-right">January 24, 2016</p>
+                    </div>
+                    <div class="blog-post-content">
+                      <a href="post-image.html">
+                        <h2 class="blog-post-title">I glide and swan</h2>
+                      </a>
+                      <p>Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem.</p>
+                      <a class="btn btn-info" href="post-image.html">Read more</a>
+                      <a class="blog-post-share pull-right" href="#">
+                        <i class="material-icons">&#xE80D;</i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </section><!-- /.blog-post -->
+            </div>
+          </div>
 
           <nav>
             <ul class="pager">
@@ -789,14 +976,394 @@
 
         </div><!-- /.blog-main -->
 
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+
+          <div class="sidebar-module">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+          </div><!-- /.sidebar-module -->
+
+          <div class="sidebar-module">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h4>About</h4>
+                <p>Donec ut libero sed arcu vehicula ultricies a non tortor. <em>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</em> Aenean ut gravida lorem.</p>
+              </div>
+            </div>
+          </div><!-- /.sidebar-module -->
+
+          <div class="sidebar-module">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h4>Categories</h4>
+                <ol class="categories list-unstyled">
+                  <li>
+                    <a class="label label-light label-success" href="filter-category.html">Australia</a>
+                    <span class="label label-light label-default pull-right">8</span>
+                  </li>
+                  <li>
+                    <a class="label label-light label-warning" href="filter-category.html">Europe</a>
+                    <span class="label label-light label-default pull-right">5</span>
+                  </li>
+                  <li>
+                    <a class="label label-light label-primary" href="filter-category.html">Tips</a>
+                    <span class="label label-light label-default pull-right">9</span>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div><!-- /.sidebar-module -->
+
+          <div class="sidebar-module">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h4>Archives</h4>
+                <ol class="list-unstyled">
+                  <li><a href="filter-date.html">February 2016</a></li>
+                  <li><a href="filter-date.html">January 2016</a></li>
+                  <li><a href="filter-date.html">December 2015</a></li>
+                  <li><a href="filter-date.html">November 2015</a></li>
+                  <li><a href="filter-date.html">October 2015</a></li>
+                  <li><a href="filter-date.html">September 2015</a></li>
+                  <li><a href="filter-date.html">August 2015</a></li>
+                  <li><a href="filter-date.html">July 2015</a></li>
+                  <li><a href="filter-date.html">June 2015</a></li>
+                  <li><a href="filter-date.html">May 2015</a></li>
+                  <li><a href="filter-date.html">April 2015</a></li>
+                  <li><a href="filter-date.html">March 2015</a></li>
+                </ol>
+              </div>
+            </div>
+          </div><!-- /.sidebar-module -->
+
+          <div class="sidebar-module">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h4>Newsletter</h4>
+                <div class="form-group label-floating">
+                  <label class="control-label" for="name">Name</label>
+                  <input type="text" id="name" class="form-control input-sm">
+                </div>
+                <div class="form-group label-floating">
+                  <label class="control-label" for="email">E-mail</label>
+                  <input type="text" id="email" class="form-control input-sm">
+                </div>
+                <a href="#" class="btn btn-default btn-raised btn-sm btn-block">Subscribe</a>
+              </div>
+            </div>
+          </div><!-- /.sidebar-module -->
+
+          <div class="sidebar-module">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h4>Elsewhere</h4>
+                <ol class="list-unstyled">
+                  <li><a href="#">Facebook</a></li>
+                  <li><a href="#">Google+</a></li>
+                  <li><a href="#">Twitter</a></li>
+                </ol>
+              </div>
+            </div>
+          </div><!-- /.sidebar-module -->
+
+        </div><!-- /.blog-sidebar -->
+
       </div><!-- /.row -->
 
     </div><!-- /.container -->
-  
+
+
+    
+
+
+  </div>
+</template>
+
+<template id="company-show-page">
+  <div class="vue-component">
+    <div class="container blog-content">
+
+      <div class="row">
+
+        <div class="col-sm-8 blog-main">
+
+          <section class="blog-post">
+            <div class="panel panel-default">
+              <img src="img/technology/unsplash-2.jpg" class="img-responsive" />
+              <div class="panel-body">
+                <div class="blog-post-meta">
+                  <span class="label label-light label-warning">Company Post Amount Place Holder</span>
+                  <p class="blog-post-date pull-right">{{ company.created_at }}</p>
+                </div>
+                <div class="blog-post-content">
+                  <h2 class="blog-post-title">{{ company.name }}</h2>
+                  
+                  <p> {{ company.description }} </p>
+
+                </div>
+              </div>
+            </div>
+          </section><!-- /.blog-post -->
+
+          <section class="blog-comments">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h2 class="blog-post-title">Comments</h2>
+                <div id="disqus_thread"></div>
+              </div>
+            </div>
+          </section>
+
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+
+          <div class="sidebar-module">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+          </div><!-- /.sidebar-module -->
+
+          <div class="sidebar-module">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h4>About</h4>
+                <p>Donec ut libero sed arcu vehicula ultricies a non tortor. <em>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</em> Aenean ut gravida lorem.</p>
+              </div>
+            </div>
+          </div><!-- /.sidebar-module -->
+
+          <div class="sidebar-module">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h4>Categories</h4>
+                <ol class="categories list-unstyled">
+                  <li>
+                    <a class="label label-light label-primary" href="filter-category.html">News</a>
+                    <span class="label label-light label-default pull-right">8</span>
+                  </li>
+                  <li>
+                    <a class="label label-light label-warning" href="filter-category.html">Apps</a>
+                    <span class="label label-light label-default pull-right">5</span>
+                  </li>
+                  <li>
+                    <a class="label label-light label-info" href="filter-category.html">Branding</a>
+                    <span class="label label-light label-default pull-right">9</span>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div><!-- /.sidebar-module -->
+
+          <div class="sidebar-module">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h4>Archives</h4>
+                <ol class="list-unstyled">
+                  <li><a href="filter-date.html">February 2016</a></li>
+                  <li><a href="filter-date.html">January 2016</a></li>
+                  <li><a href="filter-date.html">December 2015</a></li>
+                  <li><a href="filter-date.html">November 2015</a></li>
+                  <li><a href="filter-date.html">October 2015</a></li>
+                  <li><a href="filter-date.html">September 2015</a></li>
+                  <li><a href="filter-date.html">August 2015</a></li>
+                  <li><a href="filter-date.html">July 2015</a></li>
+                  <li><a href="filter-date.html">June 2015</a></li>
+                  <li><a href="filter-date.html">May 2015</a></li>
+                  <li><a href="filter-date.html">April 2015</a></li>
+                  <li><a href="filter-date.html">March 2015</a></li>
+                </ol>
+              </div>
+            </div>
+          </div><!-- /.sidebar-module -->
+
+          <div class="sidebar-module">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h4>Newsletter</h4>
+                <div class="form-group label-floating">
+                  <label class="control-label" for="name">Name</label>
+                  <input type="text" id="name" class="form-control input-sm">
+                </div>
+                <div class="form-group label-floating">
+                  <label class="control-label" for="email">E-mail</label>
+                  <input type="text" id="email" class="form-control input-sm">
+                </div>
+                <a href="#" class="btn btn-default btn-raised btn-sm btn-block">Subscribe</a>
+              </div>
+            </div>
+          </div><!-- /.sidebar-module -->
+
+          <div class="sidebar-module">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h4>Elsewhere</h4>
+                <ol class="list-unstyled">
+                  <li><a href="#">Facebook</a></li>
+                  <li><a href="#">Google+</a></li>
+                  <li><a href="#">Twitter</a></li>
+                </ol>
+              </div>
+            </div>
+          </div><!-- /.sidebar-module -->
+
+        </div><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+  </div><!-- /.container -->
+
 
 
 
 
   </div>
+</template>
+
+<template id="crime-cat-show-page">
+  <div class="vue-component">
+    <div class="container blog-content">
+
+      <div class="row">
+
+        <div class="col-sm-8 blog-main">
+
+          <section class="blog-post">
+            <div class="panel panel-default">
+              <img src="img/technology/unsplash-2.jpg" class="img-responsive" />
+              <div class="panel-body">
+                <div class="blog-post-meta">
+                  <span class="label label-light label-warning">Crime Category Post Amount Place Holder</span>
+                  <p class="blog-post-date pull-right">{{ crime_category.created_at }}</p>
+                </div>
+                <div class="blog-post-content">
+                  <h2 class="blog-post-title">{{ crime_category.name }}</h2>
+                  
+                  <p> {{ crime_category.description }} </p>
+
+                </div>
+              </div>
+            </div>
+          </section><!-- /.blog-post -->
+
+          <section class="blog-comments">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h2 class="blog-post-title">Comments</h2>
+                <div id="disqus_thread"></div>
+              </div>
+            </div>
+          </section>
+
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+
+          <div class="sidebar-module">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+          </div><!-- /.sidebar-module -->
+
+          <div class="sidebar-module">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h4>About</h4>
+                <p>Donec ut libero sed arcu vehicula ultricies a non tortor. <em>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</em> Aenean ut gravida lorem.</p>
+              </div>
+            </div>
+          </div><!-- /.sidebar-module -->
+
+          <div class="sidebar-module">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h4>Categories</h4>
+                <ol class="categories list-unstyled">
+                  <li>
+                    <a class="label label-light label-primary" href="filter-category.html">News</a>
+                    <span class="label label-light label-default pull-right">8</span>
+                  </li>
+                  <li>
+                    <a class="label label-light label-warning" href="filter-category.html">Apps</a>
+                    <span class="label label-light label-default pull-right">5</span>
+                  </li>
+                  <li>
+                    <a class="label label-light label-info" href="filter-category.html">Branding</a>
+                    <span class="label label-light label-default pull-right">9</span>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div><!-- /.sidebar-module -->
+
+          <div class="sidebar-module">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h4>Archives</h4>
+                <ol class="list-unstyled">
+                  <li><a href="filter-date.html">February 2016</a></li>
+                  <li><a href="filter-date.html">January 2016</a></li>
+                  <li><a href="filter-date.html">December 2015</a></li>
+                  <li><a href="filter-date.html">November 2015</a></li>
+                  <li><a href="filter-date.html">October 2015</a></li>
+                  <li><a href="filter-date.html">September 2015</a></li>
+                  <li><a href="filter-date.html">August 2015</a></li>
+                  <li><a href="filter-date.html">July 2015</a></li>
+                  <li><a href="filter-date.html">June 2015</a></li>
+                  <li><a href="filter-date.html">May 2015</a></li>
+                  <li><a href="filter-date.html">April 2015</a></li>
+                  <li><a href="filter-date.html">March 2015</a></li>
+                </ol>
+              </div>
+            </div>
+          </div><!-- /.sidebar-module -->
+
+          <div class="sidebar-module">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h4>Newsletter</h4>
+                <div class="form-group label-floating">
+                  <label class="control-label" for="name">Name</label>
+                  <input type="text" id="name" class="form-control input-sm">
+                </div>
+                <div class="form-group label-floating">
+                  <label class="control-label" for="email">E-mail</label>
+                  <input type="text" id="email" class="form-control input-sm">
+                </div>
+                <a href="#" class="btn btn-default btn-raised btn-sm btn-block">Subscribe</a>
+              </div>
+            </div>
+          </div><!-- /.sidebar-module -->
+
+          <div class="sidebar-module">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h4>Elsewhere</h4>
+                <ol class="list-unstyled">
+                  <li><a href="#">Facebook</a></li>
+                  <li><a href="#">Google+</a></li>
+                  <li><a href="#">Twitter</a></li>
+                </ol>
+              </div>
+            </div>
+          </div><!-- /.sidebar-module -->
+
+        </div><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+  </div><!-- /.container -->
+
+
+
+
+
+
+
+
+
+
+  </div> 
 </template>
 
