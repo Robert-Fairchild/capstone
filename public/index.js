@@ -150,6 +150,24 @@ var PostsIndexPage = {
   computed: {}
 };
 
+var ShowPost = {
+  template: "#posts-show-page",
+  data: function() {
+    return {
+      post: {}
+    };
+  },
+  created: function() {
+    axios.get("/v1/posts/" + this.$route.params.id).then(
+      function(response) {
+        this.post = response.data;
+      }.bind(this)
+    );
+  },
+  methods: {},
+  computed: {}
+};
+
 var CompanyIndexPage = {
   template: "#company-index-page",
   data: function() {
@@ -195,6 +213,7 @@ var router = new VueRouter({
     { path: "/login", component: LoginPage },
     { path: "/logout", component: LogoutPage },
     { path: "/posts/create", component: NewPostPage },
+    { path: "/posts/:id", component: ShowPost },
     { path: "/posts", component: PostsIndexPage },
     { path: "/companies", component: CompanyIndexPage },
     { path: "/crime_categories", component: CrimeCategoryIndexPage }
