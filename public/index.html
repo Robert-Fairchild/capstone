@@ -57,36 +57,40 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html"><i class="material-icons">&#xE871;</i> CanIWorkHere.com</a>
+          <!-- <a class="navbar-brand" href="/#/"><i class="material-icons">&#xE871;</i> CanIWorkHere.com</a> -->
+          <router-link class="navbar-brand" to="/"><i class="material-icons">&#xE871;</i>CanIWorkHere.com</router-link>
         </div>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
             <li class="active dropdown">
               <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><router-link to="signup">Create New Account</router-link></li>
-                <li><router-link to="login">Login</router-link></li>
-                <li><router-link to="logout">Logout</router-link></li>
+                <li><router-link to="/signup">Create New Account</router-link></li>
+                <li><router-link to="/login">Login</router-link></li>
+                <li><router-link to="/logout">Logout</router-link></li>
               </ul>
             </li>
             <li class="dropdown">
               <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown"> Companies <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><router-link to="companies/3">Uber</router-link></li>
-                <li><router-link to="companies/4">Lyft</router-link></li>
-                <li><router-link to="companies/2">IBM</router-link></li>
-                <li><router-link to="companies">View All Companies</router-link></li>
+                <li><router-link to="/companies">View All Companies</router-link></li>
+                <li class="nav-divider"></li>
+                <li><router-link to="/companies/3">Uber</router-link></li>
+                <li><router-link to="/companies/4">Lyft</router-link></li>
+                <li><router-link to="/companies/2">IBM</router-link></li>
               </ul>
             </li>
             <li class="dropdown">
               <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Crime Categories<b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><router-link to="crime_categories/1">DUI/DWI</router-link></li>
-                <li><router-link to="crime_categories/4">Drug Offense</router-link></li>
-                <li><router-link to="crime_categories/5">Violent Crime</router-link></li>
-                <li><router-link to="crime_categories/3">Financial Crime</router-link></li>
-                <li><router-link to="crime_categories/2">Sex Offense</router-link></li>
-                <li><router-link to="crime_categories">All Categories</router-link></li>
+                <li><router-link to="/crime_categories">All Categories</router-link></li>
+                <li class="nav-divider"></li>
+                <li><router-link to="/crime_categories/1">DUI/DWI</router-link></li>
+                <li><router-link to="/crime_categories/4">Drug Offense</router-link></li>
+                <li><router-link to="/crime_categories/5">Violent Crime</router-link></li>
+                <li><router-link to="/crime_categories/3">Financial Crime</router-link></li>
+                <li><router-link to="/crime_categories/2">Sex Offense</router-link></li>
+                
                
               </ul>
             </li>
@@ -94,7 +98,7 @@
             <li class="dropdown hidden-sm">
               <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Posts <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><router-link to="posts/create">Create New Post</router-link></li>
+                <li><router-link to="/posts/create">Create New Post</router-link></li>
                 <li><router-link to ="posts">View All Posts</li>
                 <li><a href="doc-icons.html">View Your Posts</a></li>
               </ul>
@@ -112,6 +116,8 @@
         </div>
       </div>
     </div>
+
+
 
 
 
@@ -700,8 +706,6 @@
   </div>
 </template>
 
-
-
 <template id="new-post-page">
   <div class="vue-component">
 
@@ -713,17 +717,23 @@
         <label>Post Title:</label> 
         <input type="text" class="form-control" v-model="title">
       </div>
-      <div class="form-group">
-        <label>Company:</label> 
-        <input type="text" class="form-control" v-model="company">
-      </div>
-      <div class="form-group">
+      
+        <div class="dropdown">
+          <label>Company:</label> 
+          <select class="form-control" v-model="companyId">
+          <option v-bind:value="company.id" v-for="company in companies">{{company.name}}</option>
+          </select>
+        </div>
+      
+      <div class="dropdown">
         <label>Crime Category:</label>
-        <input type="text" class="form-control" v-model="crime_category">
+        <select class="form-control" v-model="crimeCatId">
+          <option v-bind:value="crime_category.id" v-for="crime_category in crime_categories">{{crime_category.name}}</option>
+        </select>
       </div>
-      <div class="form-group">
-        <label>Post Body:</label>
-        <input type="text" class="form-control" v-model="body">
+     <div class="form-group">
+      <label>Post body:</label>
+      <textarea class="form-control" rows="6" placeholder="Please share your experience with world. You can make a huge difference in someone's life! If you have them, please include links that may help validate your story. Thank you!" v-model="body"></textarea>
       </div>
       <button class="btn btn-primary" v-on:click="submit()">Submit</button>
       </div>
@@ -902,69 +912,6 @@
                       </a>
                       <p>{{ company.description }}</p>
                       <router-link v-bind:to=" 'companies/' + company.id">Read more</router-link>
-                      <a class="blog-post-share pull-right" href="#">
-                        <i class="material-icons">&#xE80D;</i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </section><!-- /.blog-post -->
-              <section class="blog-post">
-                <div class="panel panel-default">
-                  <img src="img/travel/unsplash-3.jpg" class="img-responsive" />
-                  <div class="panel-body">
-                    <div class="blog-post-meta">
-                      <span class="label label-light label-success">Australia</span>
-                      <p class="blog-post-date pull-right">Januari 9, 2016</p>
-                    </div>
-                    <div class="blog-post-content">
-                      <a href="post-image.html">
-                        <h2 class="blog-post-title">I have arms for them</h2>
-                      </a>
-                      <p>Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem.</p>
-                      <a class="btn btn-info" href="post-image.html">Read more</a>
-                      <a class="blog-post-share pull-right" href="#">
-                        <i class="material-icons">&#xE80D;</i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </section><!-- /.blog-post -->
-              <section class="blog-post">
-                <div class="panel panel-default">
-                  <div class="panel-body">
-                    <div class="blog-post-meta">
-                      <span class="label label-light label-primary">Tips</span>
-                      <p class="blog-post-date pull-right">Februari 11, 2016</p>
-                    </div>
-                    <div class="blog-post-content">
-                      <a href="post-image.html">
-                        <h2 class="blog-post-title">In a glass of water</h2>
-                      </a>
-                      <p>Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem.</p>
-                      <p>Ut turpis felis, pulvinar a semper sed, adipiscing id dolor. Pellentesque auctor nisi id magna consequat sagittis. Curabitur dapibus enim sit amet elit pharetra.</p>
-                      <a class="btn btn-info" href="post-image.html">Read more</a>
-                      <a class="blog-post-share pull-right" href="#">
-                        <i class="material-icons">&#xE80D;</i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </section><!-- /.blog-post -->
-              <section class="blog-post">
-                <div class="panel panel-default">
-                  <img src="img/travel/unsplash-4.jpg" class="img-responsive" />
-                  <div class="panel-body">
-                    <div class="blog-post-meta">
-                      <span class="label label-light label-success">Australia</span>
-                      <p class="blog-post-date pull-right">January 24, 2016</p>
-                    </div>
-                    <div class="blog-post-content">
-                      <a href="post-image.html">
-                        <h2 class="blog-post-title">I glide and swan</h2>
-                      </a>
-                      <p>Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem.</p>
-                      <a class="btn btn-info" href="post-image.html">Read more</a>
                       <a class="blog-post-share pull-right" href="#">
                         <i class="material-icons">&#xE80D;</i>
                       </a>
@@ -1325,14 +1272,36 @@
             </div>
           </section><!-- /.blog-post -->
 
-          <section class="blog-comments">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h2 class="blog-post-title">Comments</h2>
-                <div id="disqus_thread"></div>
-              </div>
-            </div>
-          </section>
+         
+
+          <div class="col-sm-6">
+
+
+          <!-- <div v-for="company in companies"> -->
+            
+          <section class="blog-post" v-for="post in company.posts">
+                <div class="panel panel-default">
+                  <img src="img/technology/unsplash-2.jpg" class="img-responsive" />
+                  <div class="panel-body">
+                    <div class="blog-post-meta">
+                      <span class="label label-light label-primary">{{ post.crime_category_id }} </span>
+                      <p class="blog-post-date pull-right">{{ post.created_at }}</p>
+                    </div>
+                    <div class="blog-post-content">
+                      <a href="post-image.html">
+                        <h2 class="blog-post-title"> {{ post.title }}</h2>
+                      </a>
+                      <p>{{ post.body }}</p>
+                      <router-link v-bind:to=" 'posts/' + post.id">Read more</router-link>
+                      <a class="blog-post-share pull-right" href="#">
+                        <i class="material-icons">&#xE80D;</i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </section><!-- /.blog-post -->
+            <!-- </div> -->
+          </div>
 
         </div><!-- /.blog-main -->
 
@@ -1467,12 +1436,34 @@
           </section><!-- /.blog-post -->
 
           <section class="blog-comments">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h2 class="blog-post-title">Comments</h2>
-                <div id="disqus_thread"></div>
-              </div>
-            </div>
+             <div class="col-sm-6">
+
+
+          <!-- <div v-for="company in companies"> -->
+            
+          <section class="blog-post" v-for="post in crime_category.posts">
+                <div class="panel panel-default">
+                  <img src="img/technology/unsplash-2.jpg" class="img-responsive" />
+                  <div class="panel-body">
+                    <div class="blog-post-meta">
+                      <span class="label label-light label-primary">{{ post.crime_category_id }} </span>
+                      <p class="blog-post-date pull-right">{{ post.created_at }}</p>
+                    </div>
+                    <div class="blog-post-content">
+                      <a href="post-image.html">
+                        <h2 class="blog-post-title"> {{ post.title }}</h2>
+                      </a>
+                      <p>{{ post.body }}</p>
+                      <router-link v-bind:to=" 'posts/' + post.id">Read more</router-link>
+                      <a class="blog-post-share pull-right" href="#">
+                        <i class="material-icons">&#xE80D;</i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </section><!-- /.blog-post -->
+            <!-- </div> -->
+          </div>
           </section>
 
         </div><!-- /.blog-main -->

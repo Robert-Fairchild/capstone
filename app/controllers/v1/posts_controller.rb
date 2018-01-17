@@ -8,10 +8,9 @@ class V1::PostsController < ApplicationController
   def create
     post = Post.new(
       title: params[:title],
-      # company: params[:company.name],
-      crime_category_id: 1, #placeholder
-      user_id: 1,   #placeholder
-      company_id: 1,  #placeholder
+      crime_category_id: params[:crime_category_id], 
+      user_id: current_user.id,   #placeholder
+      company_id: params[:crime_category_id], 
       body: params[:body]
     )
     if post.save

@@ -99,22 +99,46 @@ var NewPostPage = {
   data: function() {
     return {
       title: "",
-      company: "",
-      crime_category: "",
+      company: [],
+      crime_categories: [],
       body: "",
       errors: [],
       companies: [],
-      crimeCategories: []
+      crimeCategories: [],
+      companyId: "",
+      crimeCatId: ""
     };
   },
-  created: function() {},
+  created: function() {
+    axios.get("/v1/crime_categories").then(
+      function(response) {
+        this.crime_categories = response.data;
+        console.log(this.crime_categories);
+      }.bind(this)
+    );
+
+    axios.get("/v1/companies").then(
+      function(response) {
+        this.companies = response.data;
+        console.log(this.companies);
+      }.bind(this)
+    );
+
+    axios.get("/v1/posts").then(
+      function(response) {
+        this.posts = response.data;
+        console.log(this.posts);
+      }.bind(this)
+    );
+  },
   methods: {
     submit: function() {
       var params = {
         title: this.title,
-        company: this.company,
-        crime_category: this.crime_category,
+        company_id: this.companyId,
+        crime_category_id: this.crimeCatId,
         body: this.body
+        // user_id: this.user_id
       };
       axios
         .post("/v1/posts", params)
@@ -191,7 +215,10 @@ var ShowCompany = {
   template: "#company-show-page",
   data: function() {
     return {
-      company: {}
+      company: {},
+      companies: {
+        posts: []
+      }
     };
   },
   created: function() {
@@ -228,7 +255,10 @@ var ShowCrimeCat = {
   template: "#crime-cat-show-page",
   data: function() {
     return {
-      crime_category: {}
+      crime_category: {},
+      crime_categories: {
+        posts: []
+      }
     };
   },
   created: function() {
