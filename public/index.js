@@ -5,13 +5,27 @@ var HomePage = {
   data: function() {
     return {
       message: "Welcome to CanIWorkHere.com!",
-      posts: []
+      posts: [],
+      companies: [],
+      crime_categories: []
     };
   },
   created: function() {
     axios.get("/v1/posts").then(
       function(response) {
         this.posts = response.data;
+      }.bind(this)
+    );
+    axios.get("/v1/companies").then(
+      function(response) {
+        this.companies = response.data;
+        console.log(this.companies);
+      }.bind(this)
+    );
+    axios.get("/v1/crime_categories").then(
+      function(response) {
+        this.crime_categories = response.data;
+        console.log(this.crime_categories);
       }.bind(this)
     );
   },
@@ -221,6 +235,7 @@ var ShowCompany = {
       }
     };
   },
+
   created: function() {
     axios.get("/v1/companies/" + this.$route.params.id).then(
       function(response) {

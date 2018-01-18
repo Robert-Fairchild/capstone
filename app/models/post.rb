@@ -11,6 +11,7 @@ class Post < ApplicationRecord
       title: title,
       body: body,
       crime_category_id: crime_category_id,
+      company_id: company_id,
       created_at: created_at,
       company: 
         {

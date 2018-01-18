@@ -206,7 +206,7 @@
                         <h2 class="blog-post-title"> {{ post.title }}</h2>
                       </a>
                       <p>{{ post.body }}</p>
-                      <router-link v-bind:to=" 'posts/' + post.id">Read more</router-link>
+                      <router-link v-bind:to=" '/posts/' + post.id">Read more</router-link>
                       <a class="blog-post-share pull-right" href="#">
                         <i class="material-icons">&#xE80D;</i>
                       </a>
@@ -344,7 +344,7 @@
             <div class="panel panel-default">
               <div class="panel-body">
                 <h4>About</h4>
-                <p>Donec ut libero sed arcu vehicula ultricies a non tortor. <em>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</em> Aenean ut gravida lorem.</p>
+                <p>We are a user based information blog that allows people to share their experiences with the hiring process of specific companies pertaining to their criminal background. Why waste time interviewing with a company that cant hire you anyway? Explore your options with us!</p>
               </div>
             </div>
           </div><!-- /.sidebar-module -->
@@ -352,42 +352,26 @@
           <div class="sidebar-module">
             <div class="panel panel-default">
               <div class="panel-body">
-                <h4>Categories</h4>
-                <ol class="categories list-unstyled">
+                <h4>Companies</h4>
+                <ol class="categories list-unstyled" v-for="company in companies">
                   <li>
-                    <a class="label label-light label-primary" href="filter-category.html">News</a>
-                    <span class="label label-light label-default pull-right">8</span>
-                  </li>
-                  <li>
-                    <a class="label label-light label-warning" href="filter-category.html">Apps</a>
-                    <span class="label label-light label-default pull-right">5</span>
-                  </li>
-                  <li>
-                    <a class="label label-light label-info" href="filter-category.html">Branding</a>
-                    <span class="label label-light label-default pull-right">9</span>
+                    <a class="label label-light label-primary" href="filter-category.html">{{ company.name }}</a>
+                    <span class="label label-light label-default pull-right">{{ company.number_of_posts }}</span>
                   </li>
                 </ol>
               </div>
             </div>
           </div><!-- /.sidebar-module -->
 
-          <div class="sidebar-module">
+           <div class="sidebar-module">
             <div class="panel panel-default">
               <div class="panel-body">
-                <h4>Archives</h4>
-                <ol class="list-unstyled">
-                  <li><a href="filter-date.html">February 2016</a></li>
-                  <li><a href="filter-date.html">January 2016</a></li>
-                  <li><a href="filter-date.html">December 2015</a></li>
-                  <li><a href="filter-date.html">November 2015</a></li>
-                  <li><a href="filter-date.html">October 2015</a></li>
-                  <li><a href="filter-date.html">September 2015</a></li>
-                  <li><a href="filter-date.html">August 2015</a></li>
-                  <li><a href="filter-date.html">July 2015</a></li>
-                  <li><a href="filter-date.html">June 2015</a></li>
-                  <li><a href="filter-date.html">May 2015</a></li>
-                  <li><a href="filter-date.html">April 2015</a></li>
-                  <li><a href="filter-date.html">March 2015</a></li>
+                <h4>Crime Categories</h4>
+                <ol class="categories list-unstyled" v-for="crime_category in crime_categories">
+                  <li>
+                    <a class="label label-light label-primary" href="filter-category.html">{{ crime_category.name }}</a>
+                    <span class="label label-light label-default pull-right">{{ crime_category.number_of_posts }}</span>
+                  </li>
                 </ol>
               </div>
             </div>
@@ -517,7 +501,7 @@
                         <h2 class="blog-post-title">{{  post.title }}</h2>
                       </a>
                       <p>{{ post.body }}</p>
-                     <router-link v-bind:to=" 'posts/' + post.id">View Post and Comments</router-link>
+                     <router-link v-bind:to=" '/posts/' + post.id">View Post and Comments</router-link>
                       <a class="blog-post-share pull-right" href="#">
                         <i class="material-icons">&#xE80D;</i>
                       </a>
@@ -1277,7 +1261,7 @@
           <div class="col-sm-6">
 
 
-          <!-- <div v-for="company in companies"> -->
+          
             
           <section class="blog-post" v-for="post in company.posts">
                 <div class="panel panel-default">
@@ -1292,7 +1276,7 @@
                         <h2 class="blog-post-title"> {{ post.title }}</h2>
                       </a>
                       <p>{{ post.body }}</p>
-                      <router-link v-bind:to=" 'posts/' + post.id">Read more</router-link>
+                      <router-link v-bind:to=" '/posts/' + post.id">Read more</router-link>
                       <a class="blog-post-share pull-right" href="#">
                         <i class="material-icons">&#xE80D;</i>
                       </a>
@@ -1300,7 +1284,7 @@
                   </div>
                 </div>
               </section><!-- /.blog-post -->
-            <!-- </div> -->
+          
           </div>
 
         </div><!-- /.blog-main -->
@@ -1435,18 +1419,18 @@
             </div>
           </section><!-- /.blog-post -->
 
-          <section class="blog-comments">
+          
              <div class="col-sm-6">
 
 
-          <!-- <div v-for="company in companies"> -->
+          
             
           <section class="blog-post" v-for="post in crime_category.posts">
                 <div class="panel panel-default">
                   <img src="img/technology/unsplash-2.jpg" class="img-responsive" />
                   <div class="panel-body">
                     <div class="blog-post-meta">
-                      <span class="label label-light label-primary">{{ post.crime_category_id }} </span>
+                      <span class="label label-light label-primary">{{ post.company_id }} </span>
                       <p class="blog-post-date pull-right">{{ post.created_at }}</p>
                     </div>
                     <div class="blog-post-content">
@@ -1454,7 +1438,7 @@
                         <h2 class="blog-post-title"> {{ post.title }}</h2>
                       </a>
                       <p>{{ post.body }}</p>
-                      <router-link v-bind:to=" 'posts/' + post.id">Read more</router-link>
+                      <router-link v-bind:to=" '/posts/' + post.id">Read more</router-link>
                       <a class="blog-post-share pull-right" href="#">
                         <i class="material-icons">&#xE80D;</i>
                       </a>
@@ -1462,9 +1446,9 @@
                   </div>
                 </div>
               </section><!-- /.blog-post -->
-            <!-- </div> -->
+            
           </div>
-          </section>
+          
 
         </div><!-- /.blog-main -->
 
