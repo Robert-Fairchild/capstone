@@ -4,6 +4,34 @@ class Post < ApplicationRecord
   belongs_to :crime_category
   belongs_to :company
 
+  # def num_of_posts
+  #   num_posts = posts.length
+  #   return num_posts
+  # end
+
+  
+
+  # def cc_num_of_of_posts
+  #   cc_posts = crime_categories.posts.length
+      # return cc_posts
+  # end
+
+  # def company_number_of_posts
+  #   company_posts = companies.posts.length
+  #   return company_posts
+  # end
+
+
+
+
+
+
+
+
+
+
+
+
   def as_json
     {
       id: id,

@@ -46,125 +46,211 @@
 
      
 
-    <div class="navbar navbar-material-blog navbar-primary navbar-absolute-top">
+      <div class="navbar navbar-material-blog navbar-primary navbar-absolute-top">
 
-      <div class="navbar-image" style="background-image: url('img/technology/unsplash-6.jpg');background-position: center 40%;"></div>
+        <div class="navbar-image" style="background-image: url('img/technology/unsplash-6.jpg');background-position: center 40%;"></div>
 
-      <div class="navbar-wrapper container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <!-- <a class="navbar-brand" href="/#/"><i class="material-icons">&#xE871;</i> CanIWorkHere.com</a> -->
-          <router-link class="navbar-brand" to="/"><i class="material-icons">&#xE871;</i>CanIWorkHere.com</router-link>
-        </div>
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active dropdown">
-              <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><router-link to="/signup">Create New Account</router-link></li>
-                <li><router-link to="/login">Login</router-link></li>
-                <li><router-link to="/logout">Logout</router-link></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown"> Companies <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><router-link to="/companies">View All Companies</router-link></li>
-                <li class="nav-divider"></li>
-                <li><router-link to="/companies/3">Uber</router-link></li>
-                <li><router-link to="/companies/4">Lyft</router-link></li>
-                <li><router-link to="/companies/2">IBM</router-link></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Crime Categories<b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><router-link to="/crime_categories">All Categories</router-link></li>
-                <li class="nav-divider"></li>
-                <li><router-link to="/crime_categories/1">DUI/DWI</router-link></li>
-                <li><router-link to="/crime_categories/4">Drug Offense</router-link></li>
-                <li><router-link to="/crime_categories/5">Violent Crime</router-link></li>
-                <li><router-link to="/crime_categories/3">Financial Crime</router-link></li>
-                <li><router-link to="/crime_categories/2">Sex Offense</router-link></li>
-                
-               
-              </ul>
-            </li>
-            
-            <li class="dropdown hidden-sm">
-              <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Posts <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><router-link to="/posts/create">Create New Post</router-link></li>
-                <li><router-link to ="posts">View All Posts</li>
-                <li><a href="doc-icons.html">View Your Posts</a></li>
-              </ul>
-            </li>
+        <div class="navbar-wrapper container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!-- <a class="navbar-brand" href="/#/"><i class="material-icons">&#xE871;</i> CanIWorkHere.com</a> -->
+            <router-link class="navbar-brand" to="/"><i class="material-icons">&#xE871;</i>CanIWorkHere.com</router-link>
+          </div>
+          <div class="navbar-collapse collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav">
+              <li class="active dropdown">
+                <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><router-link to="/signup">Create New Account</router-link></li>
+                  <li><router-link to="/login">Login</router-link></li>
+                  <li><router-link to="/logout">Logout</router-link></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown"> Companies <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><router-link to="/companies">View All Companies</router-link></li>
+                  <li class="nav-divider"></li>
+                  <li><router-link to="/companies/3">Uber</router-link></li>
+                  <li><router-link to="/companies/4">Lyft</router-link></li>
+                  <li><router-link to="/companies/2">IBM</router-link></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Crime Categories<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><router-link to="/crime_categories">All Categories</router-link></li>
+                  <li class="nav-divider"></li>
+                  <li><router-link to="/crime_categories/1">DUI/DWI</router-link></li>
+                  <li><router-link to="/crime_categories/4">Drug Offense</router-link></li>
+                  <li><router-link to="/crime_categories/5">Violent Crime</router-link></li>
+                  <li><router-link to="/crime_categories/3">Financial Crime</router-link></li>
+                  <li><router-link to="/crime_categories/2">Sex Offense</router-link></li>
+                  
+                 
+                </ul>
+              </li>
+              
+              <li class="dropdown hidden-sm">
+                <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Posts <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><router-link to="/posts/create">Create New Post</router-link></li>
+                  <li><router-link to ="posts">View All Posts</li>
+                  <li><a href="doc-icons.html">View Your Posts</a></li>
+                </ul>
+              </li>
 
-            <li><a href="page-about.html">About</a></li>
-            <li><a href="page-contact.html">Contact</a></li>
-            
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-
-
-
-
-    
-
-   
-
-     <router-view></router-view>
-
-   
-     
-
-    <footer class="blog-footer">
-
-      <div id="links">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-2">
-            <i class="material-icons brand">&#xE871;</i>
-            </div>
-
-            <div class="col-sm-8 text-center offset">
-              <ul class="list-inline">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="page-about.html">About</a></li>
-                <li><a href="doc-buttons.html">Documentation</a></li>
-                <li><a href="page-contact.html">Contact</a></li>
-              </ul>
-            </div>
-
-            <div class="col-md-2 text-right offset">
-              <ul class="list-inline">
-                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              </ul>
-            </div>
+              <li><a href="page-about.html">About</a></li>
+              <li><a href="page-contact.html">Contact</a></li>
+              
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            </ul>
           </div>
         </div>
       </div>
 
-    </footer>
 
-    <button class="material-scrolltop primary" type="button"></button>
+
+
+
+      
+
+     
+
+      <div class="container blog-content">
+      
+        <div class="row">
+
+         <router-view></router-view>
+
+
+          <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+
+            <div class="sidebar-module">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" v-on:keypress.enter="runSearch()">
+              </div>
+            </div><!-- /.sidebar-module -->
+
+            <div class="sidebar-module">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <h4>About</h4>
+                  <p>We are a user based information blog that allows people to share their experiences with the hiring process of specific companies pertaining to their criminal background. Why waste time interviewing with a company that cant hire you anyway? Explore your options with us!</p>
+                </div>
+              </div>
+            </div><!-- /.sidebar-module -->
+
+            <div class="sidebar-module">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <h4>Companies</h4>
+                  <ol class="categories list-unstyled" v-for="company in companies">
+                    <li>
+                      <a class="label label-light label-primary" href="filter-category.html">{{ company.name }}</a>
+                      <span class="label label-light label-default pull-right">{{ company.posts.length }}</span>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div><!-- /.sidebar-module -->
+
+             <div class="sidebar-module">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <h4>Crime Categories</h4>
+                  <ol class="categories list-unstyled" v-for="crime_category in crime_categories">
+                    <li>
+                      <a class="label label-light label-primary" href="filter-category.html">{{ crime_category.name }}</a>
+                      <span class="label label-light label-default pull-right">{{ crime_category.posts.length }}</span>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div><!-- /.sidebar-module -->
+
+            <div class="sidebar-module">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <h4>Newsletter</h4>
+                  <div class="form-group label-floating">
+                    <label class="control-label" for="name">Name</label>
+                    <input type="text" id="name" class="form-control input-sm">
+                  </div>
+                  <div class="form-group label-floating">
+                    <label class="control-label" for="email">E-mail</label>
+                    <input type="text" id="email" class="form-control input-sm">
+                  </div>
+                  <a href="#" class="btn btn-default btn-raised btn-sm btn-block">Subscribe</a>
+                </div>
+              </div>
+            </div><!-- /.sidebar-module -->
+
+            <div class="sidebar-module">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <h4>Elsewhere</h4>
+                  <ol class="list-unstyled">
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Google+</a></li>
+                    <li><a href="#">Twitter</a></li>
+                  </ol>
+                </div>
+              </div>
+            </div><!-- /.sidebar-module -->
+
+          </div><!-- /.blog-sidebar -->
+
+        </div><!-- /.row -->
+
+      </div><!-- /.container -->
+
+     
+       
+
+      <footer class="blog-footer">
+
+        <div id="links">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-2">
+              <i class="material-icons brand">&#xE871;</i>
+              </div>
+
+              <div class="col-sm-8 text-center offset">
+                <ul class="list-inline">
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="page-about.html">About</a></li>
+                  <li><a href="doc-buttons.html">Documentation</a></li>
+                  <li><a href="page-contact.html">Contact</a></li>
+                </ul>
+              </div>
+
+              <div class="col-md-2 text-right offset">
+                <ul class="list-inline">
+                  <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                  <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                  <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </footer>
+
+      <button class="material-scrolltop primary" type="button"></button>
 
     
-     </div> 
+    </div> 
 
 
 
@@ -184,11 +270,7 @@
 </html>
 
 <template id="home-page">
-
-    <div class="container blog-content">
-    
-      <div class="row">
-
+  <div class="vue-component">
         <div class="col-sm-8 blog-main">
 
           <div class="row">
@@ -331,96 +413,14 @@
           </nav>
 
         </div><!-- /.blog-main -->
-
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-
-          <div class="sidebar-module">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>About</h4>
-                <p>We are a user based information blog that allows people to share their experiences with the hiring process of specific companies pertaining to their criminal background. Why waste time interviewing with a company that cant hire you anyway? Explore your options with us!</p>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>Companies</h4>
-                <ol class="categories list-unstyled" v-for="company in companies">
-                  <li>
-                    <a class="label label-light label-primary" href="filter-category.html">{{ company.name }}</a>
-                    <span class="label label-light label-default pull-right">{{ company.number_of_posts }}</span>
-                  </li>
-                </ol>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-           <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>Crime Categories</h4>
-                <ol class="categories list-unstyled" v-for="crime_category in crime_categories">
-                  <li>
-                    <a class="label label-light label-primary" href="filter-category.html">{{ crime_category.name }}</a>
-                    <span class="label label-light label-default pull-right">{{ crime_category.number_of_posts }}</span>
-                  </li>
-                </ol>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>Newsletter</h4>
-                <div class="form-group label-floating">
-                  <label class="control-label" for="name">Name</label>
-                  <input type="text" id="name" class="form-control input-sm">
-                </div>
-                <div class="form-group label-floating">
-                  <label class="control-label" for="email">E-mail</label>
-                  <input type="text" id="email" class="form-control input-sm">
-                </div>
-                <a href="#" class="btn btn-default btn-raised btn-sm btn-block">Subscribe</a>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>Elsewhere</h4>
-                <ol class="list-unstyled">
-                  <li><a href="#">Facebook</a></li>
-                  <li><a href="#">Google+</a></li>
-                  <li><a href="#">Twitter</a></li>
-                </ol>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-        </div><!-- /.blog-sidebar -->
-
-      </div><!-- /.row -->
-
-    </div><!-- /.container -->
-
+  </div>
 </template>
 
 <template id="signup-page">
   <div class="vue-component">
 
-    <div class="container blog-content">
       
-
+    <div class="col-sm-8 blog-main">
     <h1>Signup</h1>
       <ul>
         <li class="text-danger" v-for="error in errors">{{ error }}</li>
@@ -447,16 +447,15 @@
       </div>
       <button class="btn btn-primary" v-on:click="submit()">Submit</button>
     </div>
-
   </div>
+
+  
 </template>
 
 <template id="login-page">
   <div class="vue-component">
+    <div class="col-sm-8 blog-main">
 
-    <div class="container blog-content">
-
-    <div class="container">
       <h1>Login</h1>
       <ul>
         <li class="text-danger" v-for="error in errors">{{ error }}</li>
@@ -470,19 +469,14 @@
         <input type="password" class="form-control" v-model="password">
       </div>
       <button class="btn btn-primary" v-on:click="submit()">Submit</button>
-    </div>
-    </div>
 
+    </div>
   </div>
 </template>
 
 <template id="posts-index-page">
 
   <div class="vue-component">
-
-    <div class="container blog-content">
-
-      <div class="row">
 
         <div class="col-sm-8 blog-main">
 
@@ -584,118 +578,15 @@
 
         </div><!-- /.blog-main -->
 
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-
-          <div class="sidebar-module">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>About</h4>
-                <p>Donec ut libero sed arcu vehicula ultricies a non tortor. <em>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</em> Aenean ut gravida lorem.</p>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>Categories</h4>
-                <ol class="categories list-unstyled">
-                  <li>
-                    <a class="label label-light label-success" href="filter-category.html">Australia</a>
-                    <span class="label label-light label-default pull-right">8</span>
-                  </li>
-                  <li>
-                    <a class="label label-light label-warning" href="filter-category.html">Europe</a>
-                    <span class="label label-light label-default pull-right">5</span>
-                  </li>
-                  <li>
-                    <a class="label label-light label-primary" href="filter-category.html">Tips</a>
-                    <span class="label label-light label-default pull-right">9</span>
-                  </li>
-                </ol>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>Archives</h4>
-                <ol class="list-unstyled">
-                  <li><a href="filter-date.html">February 2016</a></li>
-                  <li><a href="filter-date.html">January 2016</a></li>
-                  <li><a href="filter-date.html">December 2015</a></li>
-                  <li><a href="filter-date.html">November 2015</a></li>
-                  <li><a href="filter-date.html">October 2015</a></li>
-                  <li><a href="filter-date.html">September 2015</a></li>
-                  <li><a href="filter-date.html">August 2015</a></li>
-                  <li><a href="filter-date.html">July 2015</a></li>
-                  <li><a href="filter-date.html">June 2015</a></li>
-                  <li><a href="filter-date.html">May 2015</a></li>
-                  <li><a href="filter-date.html">April 2015</a></li>
-                  <li><a href="filter-date.html">March 2015</a></li>
-                </ol>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>Newsletter</h4>
-                <div class="form-group label-floating">
-                  <label class="control-label" for="name">Name</label>
-                  <input type="text" id="name" class="form-control input-sm">
-                </div>
-                <div class="form-group label-floating">
-                  <label class="control-label" for="email">E-mail</label>
-                  <input type="text" id="email" class="form-control input-sm">
-                </div>
-                <a href="#" class="btn btn-default btn-raised btn-sm btn-block">Subscribe</a>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>Elsewhere</h4>
-                <ol class="list-unstyled">
-                  <li><a href="#">Facebook</a></li>
-                  <li><a href="#">Google+</a></li>
-                  <li><a href="#">Twitter</a></li>
-                </ol>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-        </div><!-- /.blog-sidebar -->
-
-      </div><!-- /.row -->
-
-    </div><!-- /.container -->
-
-  
-
-  
-
-
-
   </div>
 </template>
 
 <template id="new-post-page">
   <div class="vue-component">
 
-    <div class="container blog-content">
+   
 
-    <div class="container">
+    <div class="col-sm-8 blog-main">
       <h1>New Post</h1>
       <div class="form-group">
         <label>Post Title:</label> 
@@ -730,10 +621,6 @@
   
   <div class="vue-component">
 
-    <div class="container blog-content">
-
-      <div class="row">
-
         <div class="col-sm-8 blog-main">
 
           <section class="blog-post">
@@ -765,118 +652,12 @@
 
         </div><!-- /.blog-main -->
 
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-
-          <div class="sidebar-module">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>About</h4>
-                <p>Donec ut libero sed arcu vehicula ultricies a non tortor. <em>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</em> Aenean ut gravida lorem.</p>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>Categories</h4>
-                <ol class="categories list-unstyled">
-                  <li>
-                    <a class="label label-light label-primary" href="filter-category.html">News</a>
-                    <span class="label label-light label-default pull-right">8</span>
-                  </li>
-                  <li>
-                    <a class="label label-light label-warning" href="filter-category.html">Apps</a>
-                    <span class="label label-light label-default pull-right">5</span>
-                  </li>
-                  <li>
-                    <a class="label label-light label-info" href="filter-category.html">Branding</a>
-                    <span class="label label-light label-default pull-right">9</span>
-                  </li>
-                </ol>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>Archives</h4>
-                <ol class="list-unstyled">
-                  <li><a href="filter-date.html">February 2016</a></li>
-                  <li><a href="filter-date.html">January 2016</a></li>
-                  <li><a href="filter-date.html">December 2015</a></li>
-                  <li><a href="filter-date.html">November 2015</a></li>
-                  <li><a href="filter-date.html">October 2015</a></li>
-                  <li><a href="filter-date.html">September 2015</a></li>
-                  <li><a href="filter-date.html">August 2015</a></li>
-                  <li><a href="filter-date.html">July 2015</a></li>
-                  <li><a href="filter-date.html">June 2015</a></li>
-                  <li><a href="filter-date.html">May 2015</a></li>
-                  <li><a href="filter-date.html">April 2015</a></li>
-                  <li><a href="filter-date.html">March 2015</a></li>
-                </ol>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>Newsletter</h4>
-                <div class="form-group label-floating">
-                  <label class="control-label" for="name">Name</label>
-                  <input type="text" id="name" class="form-control input-sm">
-                </div>
-                <div class="form-group label-floating">
-                  <label class="control-label" for="email">E-mail</label>
-                  <input type="text" id="email" class="form-control input-sm">
-                </div>
-                <a href="#" class="btn btn-default btn-raised btn-sm btn-block">Subscribe</a>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>Elsewhere</h4>
-                <ol class="list-unstyled">
-                  <li><a href="#">Facebook</a></li>
-                  <li><a href="#">Google+</a></li>
-                  <li><a href="#">Twitter</a></li>
-                </ol>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-        </div><!-- /.blog-sidebar -->
-
-      </div><!-- /.row -->
-
-
-
-
-
-
-    </div><!-- /.container -->
-
   </div>
 
 </template>
 
 <template id="company-index-page">
  <div class="vue-component">
-
-    <div class="container blog-content">
-
-      <div class="row">
 
         <div class="col-sm-8 blog-main">
 
@@ -915,116 +696,11 @@
 
         </div><!-- /.blog-main -->
 
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-
-          <div class="sidebar-module">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>About</h4>
-                <p>Donec ut libero sed arcu vehicula ultricies a non tortor. <em>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</em> Aenean ut gravida lorem.</p>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>Categories</h4>
-                <ol class="categories list-unstyled">
-                  <li>
-                    <a class="label label-light label-success" href="filter-category.html">Australia</a>
-                    <span class="label label-light label-default pull-right">8</span>
-                  </li>
-                  <li>
-                    <a class="label label-light label-warning" href="filter-category.html">Europe</a>
-                    <span class="label label-light label-default pull-right">5</span>
-                  </li>
-                  <li>
-                    <a class="label label-light label-primary" href="filter-category.html">Tips</a>
-                    <span class="label label-light label-default pull-right">9</span>
-                  </li>
-                </ol>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>Archives</h4>
-                <ol class="list-unstyled">
-                  <li><a href="filter-date.html">February 2016</a></li>
-                  <li><a href="filter-date.html">January 2016</a></li>
-                  <li><a href="filter-date.html">December 2015</a></li>
-                  <li><a href="filter-date.html">November 2015</a></li>
-                  <li><a href="filter-date.html">October 2015</a></li>
-                  <li><a href="filter-date.html">September 2015</a></li>
-                  <li><a href="filter-date.html">August 2015</a></li>
-                  <li><a href="filter-date.html">July 2015</a></li>
-                  <li><a href="filter-date.html">June 2015</a></li>
-                  <li><a href="filter-date.html">May 2015</a></li>
-                  <li><a href="filter-date.html">April 2015</a></li>
-                  <li><a href="filter-date.html">March 2015</a></li>
-                </ol>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>Newsletter</h4>
-                <div class="form-group label-floating">
-                  <label class="control-label" for="name">Name</label>
-                  <input type="text" id="name" class="form-control input-sm">
-                </div>
-                <div class="form-group label-floating">
-                  <label class="control-label" for="email">E-mail</label>
-                  <input type="text" id="email" class="form-control input-sm">
-                </div>
-                <a href="#" class="btn btn-default btn-raised btn-sm btn-block">Subscribe</a>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>Elsewhere</h4>
-                <ol class="list-unstyled">
-                  <li><a href="#">Facebook</a></li>
-                  <li><a href="#">Google+</a></li>
-                  <li><a href="#">Twitter</a></li>
-                </ol>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-        </div><!-- /.blog-sidebar -->
-
-      </div><!-- /.row -->
-
-    </div><!-- /.container -->
-
-
-    
-
-
   </div>
 </template>
 
 <template id="crime-category-index-page">
   <div class="vue-component">
-
-    <div class="container blog-content">
-
-      <div class="row">
 
         <div class="col-sm-8 blog-main">
 
@@ -1126,115 +802,11 @@
 
         </div><!-- /.blog-main -->
 
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-
-          <div class="sidebar-module">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>About</h4>
-                <p>Donec ut libero sed arcu vehicula ultricies a non tortor. <em>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</em> Aenean ut gravida lorem.</p>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>Categories</h4>
-                <ol class="categories list-unstyled">
-                  <li>
-                    <a class="label label-light label-success" href="filter-category.html">Australia</a>
-                    <span class="label label-light label-default pull-right">8</span>
-                  </li>
-                  <li>
-                    <a class="label label-light label-warning" href="filter-category.html">Europe</a>
-                    <span class="label label-light label-default pull-right">5</span>
-                  </li>
-                  <li>
-                    <a class="label label-light label-primary" href="filter-category.html">Tips</a>
-                    <span class="label label-light label-default pull-right">9</span>
-                  </li>
-                </ol>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>Archives</h4>
-                <ol class="list-unstyled">
-                  <li><a href="filter-date.html">February 2016</a></li>
-                  <li><a href="filter-date.html">January 2016</a></li>
-                  <li><a href="filter-date.html">December 2015</a></li>
-                  <li><a href="filter-date.html">November 2015</a></li>
-                  <li><a href="filter-date.html">October 2015</a></li>
-                  <li><a href="filter-date.html">September 2015</a></li>
-                  <li><a href="filter-date.html">August 2015</a></li>
-                  <li><a href="filter-date.html">July 2015</a></li>
-                  <li><a href="filter-date.html">June 2015</a></li>
-                  <li><a href="filter-date.html">May 2015</a></li>
-                  <li><a href="filter-date.html">April 2015</a></li>
-                  <li><a href="filter-date.html">March 2015</a></li>
-                </ol>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>Newsletter</h4>
-                <div class="form-group label-floating">
-                  <label class="control-label" for="name">Name</label>
-                  <input type="text" id="name" class="form-control input-sm">
-                </div>
-                <div class="form-group label-floating">
-                  <label class="control-label" for="email">E-mail</label>
-                  <input type="text" id="email" class="form-control input-sm">
-                </div>
-                <a href="#" class="btn btn-default btn-raised btn-sm btn-block">Subscribe</a>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>Elsewhere</h4>
-                <ol class="list-unstyled">
-                  <li><a href="#">Facebook</a></li>
-                  <li><a href="#">Google+</a></li>
-                  <li><a href="#">Twitter</a></li>
-                </ol>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-        </div><!-- /.blog-sidebar -->
-
-      </div><!-- /.row -->
-
-    </div><!-- /.container -->
-
-
-    
-
-
   </div>
 </template>
 
 <template id="company-show-page">
   <div class="vue-component">
-    <div class="container blog-content">
-
-      <div class="row">
 
         <div class="col-sm-8 blog-main">
 
@@ -1289,115 +861,12 @@
 
         </div><!-- /.blog-main -->
 
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-
-          <div class="sidebar-module">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>About</h4>
-                <p>Donec ut libero sed arcu vehicula ultricies a non tortor. <em>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</em> Aenean ut gravida lorem.</p>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>Categories</h4>
-                <ol class="categories list-unstyled">
-                  <li>
-                    <a class="label label-light label-primary" href="filter-category.html">News</a>
-                    <span class="label label-light label-default pull-right">8</span>
-                  </li>
-                  <li>
-                    <a class="label label-light label-warning" href="filter-category.html">Apps</a>
-                    <span class="label label-light label-default pull-right">5</span>
-                  </li>
-                  <li>
-                    <a class="label label-light label-info" href="filter-category.html">Branding</a>
-                    <span class="label label-light label-default pull-right">9</span>
-                  </li>
-                </ol>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>Archives</h4>
-                <ol class="list-unstyled">
-                  <li><a href="filter-date.html">February 2016</a></li>
-                  <li><a href="filter-date.html">January 2016</a></li>
-                  <li><a href="filter-date.html">December 2015</a></li>
-                  <li><a href="filter-date.html">November 2015</a></li>
-                  <li><a href="filter-date.html">October 2015</a></li>
-                  <li><a href="filter-date.html">September 2015</a></li>
-                  <li><a href="filter-date.html">August 2015</a></li>
-                  <li><a href="filter-date.html">July 2015</a></li>
-                  <li><a href="filter-date.html">June 2015</a></li>
-                  <li><a href="filter-date.html">May 2015</a></li>
-                  <li><a href="filter-date.html">April 2015</a></li>
-                  <li><a href="filter-date.html">March 2015</a></li>
-                </ol>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>Newsletter</h4>
-                <div class="form-group label-floating">
-                  <label class="control-label" for="name">Name</label>
-                  <input type="text" id="name" class="form-control input-sm">
-                </div>
-                <div class="form-group label-floating">
-                  <label class="control-label" for="email">E-mail</label>
-                  <input type="text" id="email" class="form-control input-sm">
-                </div>
-                <a href="#" class="btn btn-default btn-raised btn-sm btn-block">Subscribe</a>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>Elsewhere</h4>
-                <ol class="list-unstyled">
-                  <li><a href="#">Facebook</a></li>
-                  <li><a href="#">Google+</a></li>
-                  <li><a href="#">Twitter</a></li>
-                </ol>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-        </div><!-- /.blog-sidebar -->
-
-      </div><!-- /.row -->
-
-  </div><!-- /.container -->
-
-
-
-
 
   </div>
 </template>
 
 <template id="crime-cat-show-page">
   <div class="vue-component">
-    <div class="container blog-content">
-
-      <div class="row">
 
         <div class="col-sm-8 blog-main">
 
@@ -1451,103 +920,6 @@
           
 
         </div><!-- /.blog-main -->
-
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-
-          <div class="sidebar-module">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>About</h4>
-                <p>Donec ut libero sed arcu vehicula ultricies a non tortor. <em>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</em> Aenean ut gravida lorem.</p>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>Categories</h4>
-                <ol class="categories list-unstyled">
-                  <li>
-                    <a class="label label-light label-primary" href="filter-category.html">News</a>
-                    <span class="label label-light label-default pull-right">8</span>
-                  </li>
-                  <li>
-                    <a class="label label-light label-warning" href="filter-category.html">Apps</a>
-                    <span class="label label-light label-default pull-right">5</span>
-                  </li>
-                  <li>
-                    <a class="label label-light label-info" href="filter-category.html">Branding</a>
-                    <span class="label label-light label-default pull-right">9</span>
-                  </li>
-                </ol>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>Archives</h4>
-                <ol class="list-unstyled">
-                  <li><a href="filter-date.html">February 2016</a></li>
-                  <li><a href="filter-date.html">January 2016</a></li>
-                  <li><a href="filter-date.html">December 2015</a></li>
-                  <li><a href="filter-date.html">November 2015</a></li>
-                  <li><a href="filter-date.html">October 2015</a></li>
-                  <li><a href="filter-date.html">September 2015</a></li>
-                  <li><a href="filter-date.html">August 2015</a></li>
-                  <li><a href="filter-date.html">July 2015</a></li>
-                  <li><a href="filter-date.html">June 2015</a></li>
-                  <li><a href="filter-date.html">May 2015</a></li>
-                  <li><a href="filter-date.html">April 2015</a></li>
-                  <li><a href="filter-date.html">March 2015</a></li>
-                </ol>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>Newsletter</h4>
-                <div class="form-group label-floating">
-                  <label class="control-label" for="name">Name</label>
-                  <input type="text" id="name" class="form-control input-sm">
-                </div>
-                <div class="form-group label-floating">
-                  <label class="control-label" for="email">E-mail</label>
-                  <input type="text" id="email" class="form-control input-sm">
-                </div>
-                <a href="#" class="btn btn-default btn-raised btn-sm btn-block">Subscribe</a>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-          <div class="sidebar-module">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h4>Elsewhere</h4>
-                <ol class="list-unstyled">
-                  <li><a href="#">Facebook</a></li>
-                  <li><a href="#">Google+</a></li>
-                  <li><a href="#">Twitter</a></li>
-                </ol>
-              </div>
-            </div>
-          </div><!-- /.sidebar-module -->
-
-        </div><!-- /.blog-sidebar -->
-
-      </div><!-- /.row -->
-
-  </div><!-- /.container -->
 
 
 

@@ -5,27 +5,14 @@ var HomePage = {
   data: function() {
     return {
       message: "Welcome to CanIWorkHere.com!",
-      posts: [],
-      companies: [],
-      crime_categories: []
+      posts: []
     };
   },
   created: function() {
+    // console.log(this.$root.search_results);
     axios.get("/v1/posts").then(
       function(response) {
         this.posts = response.data;
-      }.bind(this)
-    );
-    axios.get("/v1/companies").then(
-      function(response) {
-        this.companies = response.data;
-        console.log(this.companies);
-      }.bind(this)
-    );
-    axios.get("/v1/crime_categories").then(
-      function(response) {
-        this.crime_categories = response.data;
-        console.log(this.crime_categories);
       }.bind(this)
     );
   },
@@ -309,10 +296,34 @@ var router = new VueRouter({
 var app = new Vue({
   el: "#vue-app",
   router: router,
+  data: function() {
+    return {
+      companies: [],
+      crime_categories: [],
+      search_results: []
+    };
+  },
   created: function() {
     var jwt = localStorage.getItem("jwt");
     if (jwt) {
       axios.defaults.headers.common["Authorization"] = jwt;
+    }
+    axios.get("/v1/companies").then(
+      function(response) {
+        this.companies = response.data;
+        console.log(this.companies);
+      }.bind(this)
+    );
+    axios.get("/v1/crime_categories").then(
+      function(response) {
+        this.crime_categories = response.data;
+        console.log(this.crime_categories);
+      }.bind(this)
+    );
+  },
+  methods: {
+    runSearch: function() {
+      console.log("runSearch");
     }
   }
 });
