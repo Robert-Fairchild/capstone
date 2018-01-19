@@ -219,7 +219,8 @@ var ShowCompany = {
       company: {},
       companies: {
         posts: []
-      }
+      },
+      glassdoorData: {}
     };
   },
 
@@ -227,6 +228,13 @@ var ShowCompany = {
     axios.get("/v1/companies/" + this.$route.params.id).then(
       function(response) {
         this.company = response.data;
+
+        axios.get("/v1/companies/glassdoor?company=" + this.company.name).then(
+          function(response) {
+            this.glassdoorData = response.data;
+            console.log("glassdoorData is", this.glassdoorData);
+          }.bind(this)
+        );
       }.bind(this)
     );
   },
