@@ -179,7 +179,12 @@ var ShowPost = {
   template: "#posts-show-page",
   data: function() {
     return {
-      post: {}
+      post: {},
+      posts: {
+        comments: [],
+        body: ""
+      },
+      body: ""
     };
   },
   created: function() {
@@ -189,7 +194,24 @@ var ShowPost = {
       }.bind(this)
     );
   },
-  methods: {},
+  methods: {
+    submit: function() {
+      var params = {
+        body: this.body
+      };
+      axios
+        .post("/v1/comments", params)
+        .then(function(response) {
+          router.push("/v1/posts/" + this.$route.params.id);
+        })
+        .catch(
+          function(error) {
+            this.errors = error.response.data.errors;
+            router.push("/login");
+          }.bind(this)
+        );
+    }
+  },
   computed: {}
 };
 
@@ -220,7 +242,10 @@ var ShowCompany = {
       companies: {
         posts: []
       },
-      glassdoorData: {}
+      glassdoorData: {
+        response: [],
+        employers: {}
+      }
     };
   },
 

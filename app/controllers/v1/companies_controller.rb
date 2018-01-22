@@ -24,7 +24,7 @@ class V1::CompaniesController < ApplicationController
     input_company = params[:company]
     user_ip = request.remote_ip
     user_agent = "Chrome/63.0.3239.132"
-    response = Unirest.get("http://api.glassdoor.com/api/api.htm?v=1&format=json&t.p=#{ENV['PARTNER_ID']}&t.k=#{ENV['GLASSDOOR_KEY']}&action=interviews&q=#{input_company}&userip=#{user_ip}&useragent=#{user_agent}")
+    response = Unirest.get("http://api.glassdoor.com/api/api.htm?v=1&format=json&t.p=#{ENV['PARTNER_ID']}&t.k=#{ENV['GLASSDOOR_KEY']}&action=employers&q=#{input_company}&userip=#{user_ip}&useragent=#{user_agent}")
     render json: response.body
   end
 

@@ -22,3 +22,4 @@ Comment.create(post_id: 2, user_id: 1, body: "same here!")
 Comment.create(post_id: 4, user_id: 4, body: "I also smoked weed while there")
 Comment.create(post_id: 3, user_id: 5, body: "I had a similar situation but they did not hire me!")
 
+Comment.create(post_id: 3, user_id: 2, body: "I had a similar situation and everything worked out for me as well! THanks for the post!")

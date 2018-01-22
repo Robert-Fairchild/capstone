@@ -1,5 +1,16 @@
 class V1::CommentsController < ApplicationController
 
+  
+  def index
+    comments = Comment.all.order(:id => :asc)
+    render json: comments.as_json
+
+  end
+
+
+
+
+
   def create
     comment = Comment.new(
         post_id: 1, #placeholder

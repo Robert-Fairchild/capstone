@@ -227,9 +227,8 @@
 
               <div class="col-sm-8 text-center offset">
                 <ul class="list-inline">
-                  <li><a href="index.html">Home</a></li>
+                  <li><a href="/#/">Home</a></li>
                   <li><a href="page-about.html">About</a></li>
-                  <li><a href="doc-buttons.html">Documentation</a></li>
                   <li><a href="page-contact.html">Contact</a></li>
                 </ul>
               </div>
@@ -641,11 +640,17 @@
             </div>
           </section><!-- /.blog-post -->
 
-          <section class="blog-comments">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h2 class="blog-post-title">Comments</h2>
-                <div id="disqus_thread"></div>
+          <section class="blog-comments" v-for="comment in post.comments">
+            <div class="panel panel-default" >
+              <div class="panel-body" >
+                <h2 class="blog-post-title">Comment</h2>
+                <div id="disqus_thread">
+                  
+                  <p> {{ comment.created_at }} </p>
+                  <p> {{ comment.user_id }} </p>
+                  <p> {{ comment.body }} </p>
+                  
+                </div>
               </div>
             </div>
           </section>
@@ -812,7 +817,7 @@
 
           <section class="blog-post">
             <div class="panel panel-default">
-              <img src="img/technology/unsplash-2.jpg" class="img-responsive" />
+              <img v-bind:src="glassdoorData.response.employers[0].squareLogo" class="img-responsive" style="width: 100%"/>
               <div class="panel-body">
                 <div class="blog-post-meta">
                   <span class="label label-light label-warning">Company Post Amount Place Holder</span>
@@ -822,6 +827,9 @@
                   <h2 class="blog-post-title">{{ company.name }}</h2>
                   
                   <p> {{ company.description }} </p>
+                  <p> {{ glassdoorData.response.employers[0].website }} </p>
+                  <p> Company Rating: {{ glassdoorData.response.employers[0].overallRating }}/5 </p>
+                  <a href='https://www.glassdoor.com/index.htm'>powered by <img src='https://www.glassdoor.com/static/img/api/glassdoor_logo_80.png' title='Job Search' /></a>
 
                 </div>
               </div>
