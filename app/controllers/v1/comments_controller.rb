@@ -13,9 +13,9 @@ class V1::CommentsController < ApplicationController
 
   def create
     comment = Comment.new(
-        post_id: 1, #placeholder
+        # post_id: 1, #placeholder
         user_id: current_user.id,
-        body: params[:body],
+        body: params[:body]
       )
   end 
 

@@ -640,11 +640,35 @@
             </div>
           </section><!-- /.blog-post -->
 
+          <section class="blog-comments">
+            <div class="panel panel-default" >
+              <div class="panel-body" >
+                
+                <div id="disqus_thread" >
+                  
+                   <div class="form-group">
+                    <textarea class="form-control" rows="3" placeholder="Add a comment here..." v-model="body"></textarea>
+                    </div>
+                    <button class="btn btn-primary" v-on:click="submit()">Submit</button>
+                                
+                  
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+
+
+
+
+
+
           <section class="blog-comments" v-for="comment in post.comments">
             <div class="panel panel-default" >
               <div class="panel-body" >
                 <h2 class="blog-post-title">Comment</h2>
-                <div id="disqus_thread">
+                <div id="disqus_thread" >
                   
                   <p> {{ comment.created_at }} </p>
                   <p> {{ comment.user_id }} </p>

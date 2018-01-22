@@ -184,7 +184,8 @@ var ShowPost = {
         comments: [],
         body: ""
       },
-      body: ""
+      body: "",
+      errors: []
     };
   },
   created: function() {
