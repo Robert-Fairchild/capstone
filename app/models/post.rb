@@ -22,16 +22,6 @@ class Post < ApplicationRecord
   # end
 
 
-
-
-
-
-
-
-
-
-
-
   def as_json
     {
       id: id,
@@ -62,7 +52,7 @@ class Post < ApplicationRecord
       updated_at: crime_category.updated_at,
       },
 
-      comments: comments.as_json
+      comments: comments.order(created_at: :desc).as_json
 
 
       

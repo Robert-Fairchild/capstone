@@ -136,9 +136,14 @@
 
             <div class="sidebar-module">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search" v-on:keypress.enter="runSearch()">
+                <input type="text" class="form-control" placeholder="Search Posts" v-on:keypress.enter="runSearch()">
               </div>
             </div><!-- /.sidebar-module -->
+             <div class="sidebar-module">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search Companies" v-on:keypress.enter="runCompanySearch()">
+              </div>
+            </div>
 
             <div class="sidebar-module">
               <div class="panel panel-default">
@@ -661,7 +666,7 @@
 
 
 
-
+        
 
 
           <section class="blog-comments" v-for="comment in post.comments">
@@ -671,7 +676,7 @@
                 <div id="disqus_thread" >
                   
                   <p> {{ comment.created_at }} </p>
-                  <p> {{ comment.user_id }} </p>
+                  <p> {{ comment.author }} </p>
                   <p> {{ comment.body }} </p>
                   
                 </div>
@@ -852,7 +857,13 @@
                   
                   <p> {{ company.description }} </p>
                   <p> {{ glassdoorData.response.employers[0].website }} </p>
-                  <p> Company Rating: {{ glassdoorData.response.employers[0].overallRating }}/5 </p>
+                  <p> Overall Rating: {{ glassdoorData.response.employers[0].overallRating }}/5 </p>
+                   <p> Cultures and Values: {{ glassdoorData.response.employers[0].cultureAndValuesRating }}/5 </p>
+                   <p> Senior Leadership: {{ glassdoorData.response.employers[0].seniorLeadershipRating }}/5 </p>
+                   <p> Compensation and Benefits: {{ glassdoorData.response.employers[0].compensationAndBenefitsRating }}/5 </p>
+                   <p> Career Opportunities: {{ glassdoorData.response.employers[0].careerOpportunitiesRating }}/5 </p>
+                   <p> Work Life Balance: {{ glassdoorData.response.employers[0].workLifeBalanceRating }}/5 </p>
+
                   <a href='https://www.glassdoor.com/index.htm'>powered by <img src='https://www.glassdoor.com/static/img/api/glassdoor_logo_80.png' title='Job Search' /></a>
 
                 </div>

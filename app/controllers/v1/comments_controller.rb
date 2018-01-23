@@ -7,17 +7,18 @@ class V1::CommentsController < ApplicationController
 
   end
 
-
-
-
-
   def create
     comment = Comment.new(
-        # post_id: 1, #placeholder
+        post_id: params[:post_id],
         user_id: current_user.id,
         body: params[:body]
       )
-  end 
+    if comment.save
+      render json: comment.as_json
+    else 
+      render json: {errors: comment.errors.full_messages}, status: :bad_request
+    end  
+  end
 
   def show 
     comment = Comment.find_by(id: params[:id])

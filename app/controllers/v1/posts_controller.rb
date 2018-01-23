@@ -2,6 +2,14 @@ class V1::PostsController < ApplicationController
 
   def index 
     posts = Post.all.order(:id => :asc)
+    
+
+    post_search_terms = params[:post_search]
+    if post_search_terms
+      posts = posts.where("body ILIKE ?", "%" + posts_search_terms + "%")
+    end
+
+
     render json: posts.as_json
   end 
 
@@ -9,7 +17,7 @@ class V1::PostsController < ApplicationController
     post = Post.new(
       title: params[:title],
       crime_category_id: params[:crime_category_id], 
-      user_id: current_user.id,   #placeholder
+      user_id: current_user.id,   
       company_id: params[:crime_category_id], 
       body: params[:body]
     )

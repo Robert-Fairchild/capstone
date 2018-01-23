@@ -179,13 +179,13 @@ var ShowPost = {
   template: "#posts-show-page",
   data: function() {
     return {
-      post: {},
-      posts: {
-        comments: [],
-        body: ""
+      post: {
+        comments: []
       },
       body: "",
-      errors: []
+      errors: [],
+      error: [],
+      users: {}
     };
   },
   created: function() {
@@ -194,23 +194,39 @@ var ShowPost = {
         this.post = response.data;
       }.bind(this)
     );
+
+    axios.get("/v1/comments").then(
+      function(response) {
+        this.comments = response.data;
+        console.log(this.comments);
+      }.bind(this)
+    );
+    axios.get("/v1/posts").then(
+      function(response) {
+        this.posts = response.data;
+        console.log(this.posts);
+      }.bind(this)
+    );
   },
   methods: {
     submit: function() {
       var params = {
-        body: this.body
+        body: this.body,
+        post_id: this.$route.params.id
       };
-      axios
-        .post("/v1/comments", params)
-        .then(function(response) {
-          router.push("/v1/posts/" + this.$route.params.id);
-        })
-        .catch(
-          function(error) {
-            this.errors = error.response.data.errors;
-            router.push("/login");
-          }.bind(this)
-        );
+      axios.post("/v1/comments", params).then(
+        function(response) {
+          // router.push("/");
+          console.log("added a new comment", response.data);
+          console.log("post is", this.post);
+          console.log("comments is", this.post.comments);
+          this.post.comments.push(response.data);
+          app.$forceUpdate();
+          // Vue.set(this.)
+          this.body = "";
+          app.$forceUpdate();
+        }.bind(this)
+      );
     }
   },
   computed: {}
@@ -358,6 +374,9 @@ var app = new Vue({
   methods: {
     runSearch: function() {
       console.log("runSearch");
+    },
+    runCompanySearch: function() {
+      console.log("runCompanyearch");
     }
   }
 });
