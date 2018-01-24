@@ -25,7 +25,7 @@ class Post < ApplicationRecord
   def as_json
     {
       id: id,
-      
+      user_id: user_id,
       title: title,
       body: body,
       crime_category_id: crime_category_id,

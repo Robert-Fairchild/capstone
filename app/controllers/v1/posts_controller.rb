@@ -1,14 +1,14 @@
 class V1::PostsController < ApplicationController
 
   def index 
-    posts = Post.all.order(:id => :asc)
-    
+    posts = Post.all.order(:id)
 
-    post_search_terms = params[:post_search]
-    if post_search_terms
-      posts = posts.where("body ILIKE ?", "%" + posts_search_terms + "%")
+    if params[:current_user_posts]
+      posts = posts.where(user_id: current_user.id)
+
+    elsif params[:post_search]
+      posts = posts.where("title ILIKE ? OR body ILIKE ?", "%#{params[:post_search]}%", "%#{params[:post_search]}%" )
     end
-
 
     render json: posts.as_json
   end 

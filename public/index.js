@@ -1,4 +1,5 @@
 /* global Vue, VueRouter, axios */
+Vue.component("star-rating", VueStarRating.default);
 
 var HomePage = {
   template: "#home-page",
@@ -165,12 +166,23 @@ var PostsIndexPage = {
     };
   },
   created: function() {
-    axios.get("/v1/posts").then(
+    var url = "/v1/posts";
+    if (this.$route.query.post_search) {
+      url += "?post_search=" + this.$route.query.post_search;
+    }
+    axios.get(url).then(
       function(response) {
         this.posts = response.data;
       }.bind(this)
     );
   },
+
+  //   axios.get("/v1/posts").then(
+  //     function(response) {
+  //       this.posts = response.data;
+  //     }.bind(this)
+  //   );
+  // },
   methods: {},
   computed: {}
 };
@@ -194,19 +206,6 @@ var ShowPost = {
         this.post = response.data;
       }.bind(this)
     );
-
-    axios.get("/v1/comments").then(
-      function(response) {
-        this.comments = response.data;
-        console.log(this.comments);
-      }.bind(this)
-    );
-    axios.get("/v1/posts").then(
-      function(response) {
-        this.posts = response.data;
-        console.log(this.posts);
-      }.bind(this)
-    );
   },
   methods: {
     submit: function() {
@@ -216,15 +215,8 @@ var ShowPost = {
       };
       axios.post("/v1/comments", params).then(
         function(response) {
-          // router.push("/");
-          console.log("added a new comment", response.data);
-          console.log("post is", this.post);
-          console.log("comments is", this.post.comments);
-          this.post.comments.push(response.data);
-          app.$forceUpdate();
-          // Vue.set(this.)
+          this.post.comments.unshift(response.data);
           this.body = "";
-          app.$forceUpdate();
         }.bind(this)
       );
     }
@@ -237,16 +229,25 @@ var CompanyIndexPage = {
   data: function() {
     return {
       message: "Main Company List",
-      companies: []
+      companies: [],
+      glassdoorData: {
+        response: { employers: [{}] },
+        employers: {}
+      }
     };
   },
   created: function() {
-    axios.get("/v1/companies").then(
+    var url = "/v1/companies";
+    if (this.$route.query.company_search) {
+      url += "?company_search=" + this.$route.query.company_search;
+    }
+    axios.get(url).then(
       function(response) {
         this.companies = response.data;
       }.bind(this)
     );
   },
+
   methods: {},
   computed: {}
 };
@@ -260,7 +261,7 @@ var ShowCompany = {
         posts: []
       },
       glassdoorData: {
-        response: [],
+        response: { employers: [{}] },
         employers: {}
       }
     };
@@ -324,6 +325,26 @@ var ShowCrimeCat = {
   computed: {}
 };
 
+var UserPostIndexPage = {
+  template: "#user-posts-index-page",
+  data: function() {
+    return {
+      message: "Your Posts!",
+      posts: []
+    };
+  },
+  created: function() {
+    axios.get("/v1/posts?current_user_posts=true").then(
+      function(response) {
+        this.posts = response.data;
+        console.log(this.posts);
+      }.bind(this)
+    );
+  },
+  methods: {},
+  computed: {}
+};
+
 var router = new VueRouter({
   routes: [
     { path: "/", component: HomePage },
@@ -336,8 +357,10 @@ var router = new VueRouter({
     { path: "/companies/:id", component: ShowCompany },
     { path: "/companies", component: CompanyIndexPage },
     { path: "/crime_categories", component: CrimeCategoryIndexPage },
-    { path: "/crime_categories/:id", component: ShowCrimeCat }
+    { path: "/crime_categories/:id", component: ShowCrimeCat },
+    { path: "/user-posts", component: UserPostIndexPage }
   ],
+
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };
   }
@@ -348,9 +371,12 @@ var app = new Vue({
   router: router,
   data: function() {
     return {
+      rating: 0,
       companies: [],
       crime_categories: [],
-      search_results: []
+      search_results: [],
+      post_search_terms: [],
+      company_search_terms: []
     };
   },
   created: function() {
@@ -374,9 +400,20 @@ var app = new Vue({
   methods: {
     runSearch: function() {
       console.log("runSearch");
+      router.push("/posts?post_search=" + this.post_search_terms);
     },
     runCompanySearch: function() {
       console.log("runCompanyearch");
+      router.push("/companies?company_search=" + this.company_search_terms);
+    },
+    setRating: function(rating) {
+      this.rating = rating;
+    }
+  },
+  watch: {
+    $route: function() {
+      console.log("change route?");
+      location.reload();
     }
   }
 });
