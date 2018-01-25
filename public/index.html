@@ -160,7 +160,7 @@
                   <h4>Companies</h4>
                   <ol class="categories list-unstyled" v-for="company in companies">
                     <li>
-                      <a class="label label-light label-primary" href="filter-category.html">{{ company.name }}</a>
+                      <router-link class="label label-light label-primary" v-bind:to=" '/companies/' + company.id">{{ company.name }}</router-link>
                       <span class="label label-light label-default pull-right">{{ company.posts.length }}</span>
                     </li>
                   </ol>
@@ -174,7 +174,7 @@
                   <h4>Crime Categories</h4>
                   <ol class="categories list-unstyled" v-for="crime_category in crime_categories">
                     <li>
-                      <a class="label label-light label-primary" href="filter-category.html">{{ crime_category.name }}</a>
+                      <router-link class="label label-light label-primary" v-bind:to=" '/crime_categories/' + crime_category.id">{{ crime_category.name }}</router-link>
                       <span class="label label-light label-default pull-right">{{ crime_category.posts.length }}</span>
                     </li>
                   </ol>
@@ -293,47 +293,6 @@
                       </a>
                       <p>{{ post.body }}</p>
                       <router-link v-bind:to=" '/posts/' + post.id">Read more</router-link>
-                      <a class="blog-post-share pull-right" href="#">
-                        <i class="material-icons">&#xE80D;</i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </section><!-- /.blog-post -->
-              <section class="blog-post">
-                <div class="panel panel-default">
-                  <div class="panel-body">
-                    <div class="blog-post-meta">
-                      <span class="label label-light label-warning">Apps</span>
-                      <p class="blog-post-date pull-right">February 5, 2016</p>
-                    </div>
-                    <div class="blog-post-content">
-                      <a href="post-image.html">
-                        <h2 class="blog-post-title">Cinderella through the room</h2>
-                      </a>
-                      <p>Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem.</p>
-                      <a class="btn btn-info" href="post-image.html">Read more</a>
-                      <a class="blog-post-share pull-right" href="#">
-                        <i class="material-icons">&#xE80D;</i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </section><!-- /.blog-post -->
-              <section class="blog-post">
-                <div class="panel panel-default">
-                  <img src="img/technology/unsplash-3.jpg" class="img-responsive" />
-                  <div class="panel-body">
-                    <div class="blog-post-meta">
-                      <span class="label label-light label-primary">News</span>
-                      <p class="blog-post-date pull-right">Januari 9, 2016</p>
-                    </div>
-                    <div class="blog-post-content">
-                      <a href="post-image.html">
-                        <h2 class="blog-post-title">I have arms for them</h2>
-                      </a>
-                      <p>Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem.</p>
-                      <a class="btn btn-info" href="post-image.html">Read more</a>
                       <a class="blog-post-share pull-right" href="#">
                         <i class="material-icons">&#xE80D;</i>
                       </a>
