@@ -263,7 +263,8 @@ var ShowCompany = {
       glassdoorData: {
         response: { employers: [{}] },
         employers: {}
-      }
+      },
+      rating: 3.1
     };
   },
 
@@ -281,7 +282,11 @@ var ShowCompany = {
       }.bind(this)
     );
   },
-  methods: {},
+  methods: {
+    setRating: function(rating) {
+      this.rating = rating;
+    }
+  },
   computed: {}
 };
 
@@ -371,7 +376,6 @@ var app = new Vue({
   router: router,
   data: function() {
     return {
-      rating: 0,
       companies: [],
       crime_categories: [],
       search_results: [],
@@ -405,9 +409,6 @@ var app = new Vue({
     runCompanySearch: function() {
       console.log("runCompanyearch");
       router.push("/companies?company_search=" + this.company_search_terms);
-    },
-    setRating: function(rating) {
-      this.rating = rating;
     }
   },
   watch: {

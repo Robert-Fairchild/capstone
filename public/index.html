@@ -792,14 +792,67 @@
 
                   <p> {{ company.description }} </p>
                   <p> {{ glassdoorData.response.employers[0].website }} </p>
+
                   
-                  <p> Overall Rating: {{ glassdoorData.response.employers[0].overallRating }}</p>
+
+                  <p> Overall Rating: </p> 
                   
-                   <p> Cultures and Values: {{ glassdoorData.response.employers[0].cultureAndValuesRating }}/5 </p>
-                   <p> Senior Leadership: {{ glassdoorData.response.employers[0].seniorLeadershipRating }}/5 </p>
-                   <p> Compensation and Benefits: {{ glassdoorData.response.employers[0].compensationAndBenefitsRating }}/5 </p>
-                   <p> Career Opportunities: {{ glassdoorData.response.employers[0].careerOpportunitiesRating }}/5 </p>
-                   <p> Work Life Balance: {{ glassdoorData.response.employers[0].workLifeBalanceRating }}/5 </p>
+                  <star-rating 
+                    v-model="glassdoorData.response.employers[0].overallRating" 
+                    v-bind:read-only="true"
+                    v-bind:increment="0.1" 
+                    v-bind:star-size="20"
+                  >
+                  </star-rating>
+                   <p> Cultures and Values:</p>
+                  
+                  <star-rating 
+                    v-model="glassdoorData.response.employers[0].cultureAndValuesRating" 
+                    v-bind:read-only="true"
+                    v-bind:increment="0.1" 
+                    v-bind:star-size="20"
+                  >
+                  </star-rating>
+                    <p> Senior Leadership:</p>
+
+
+                  <star-rating 
+                    v-model="glassdoorData.response.employers[0].seniorLeadershipRating" 
+                    v-bind:read-only="true"
+                    v-bind:increment="0.1" 
+                    v-bind:star-size="20"
+                  >
+                  </star-rating>
+
+                   <p> Compensation and Benefits:</p>
+
+                   <star-rating 
+                    v-model="glassdoorData.response.employers[0].careerOpportunitiesRating" 
+                    v-bind:read-only="true"
+                    v-bind:increment="0.1" 
+                    v-bind:star-size="20"
+                  >
+                  </star-rating>
+                   <p> Career Opportunities:</p>
+
+                    <star-rating 
+                    v-model="glassdoorData.response.employers[0].careerOpportunitiesRating" 
+                    v-bind:read-only="true"
+                    v-bind:increment="0.1" 
+                    v-bind:star-size="20"
+                  >
+                  </star-rating>
+
+
+                   <p> Work Life Balance:</p>
+
+                      <star-rating 
+                    v-model="glassdoorData.response.employers[0].workLifeBalanceRating" 
+                    v-bind:read-only="true"
+                    v-bind:increment="0.1" 
+                    v-bind:star-size="20"
+                  >
+                  </star-rating>
 
                   <a href='https://www.glassdoor.com/index.htm'>powered by <img src='https://www.glassdoor.com/static/img/api/glassdoor_logo_80.png' title='Job Search' /></a>
 
