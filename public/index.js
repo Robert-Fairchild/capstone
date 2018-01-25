@@ -6,7 +6,19 @@ var HomePage = {
   data: function() {
     return {
       message: "Welcome to CanIWorkHere.com!",
-      posts: []
+      posts: [],
+      leftPosts: [],
+      rightPosts: [],
+      companyImages: {
+        Actualize:
+          "http://tcyk.com.au/thumbs/space_4-d0cc460260af0c3e1ffe425cbdc35a47.jpg",
+        Uber:
+          "http://www.oaklandpost.org/wp-content/uploads/2017/10/636247599789125010-1013090754_Uber-pic.jpg",
+        Lyft:
+          "http://tcyk.com.au/thumbs/space_4-d0cc460260af0c3e1ffe425cbdc35a47.jpg",
+        IBM:
+          "http://tcyk.com.au/thumbs/space_4-d0cc460260af0c3e1ffe425cbdc35a47.jpg"
+      }
     };
   },
   created: function() {
@@ -14,10 +26,22 @@ var HomePage = {
     axios.get("/v1/posts").then(
       function(response) {
         this.posts = response.data;
+        var indexToSplit = this.posts.length / 2;
+        this.leftPosts = this.posts.slice(0, indexToSplit);
+        this.rightPosts = this.posts.slice(indexToSplit + 1);
       }.bind(this)
     );
   },
-  methods: {},
+  methods: {
+    getCompanyImage: function(company) {
+      var image = this.companyImages[company.name];
+      if (!image) {
+        image =
+          "https://www.asean-agrifood.org/wp-content/themes/fearless/images/missing-image-640x360.png";
+      }
+      return image;
+    }
+  },
   computed: {}
 };
 
