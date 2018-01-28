@@ -11,13 +11,13 @@ var HomePage = {
       rightPosts: [],
       companyImages: {
         Actualize:
-          "http://tcyk.com.au/thumbs/space_4-d0cc460260af0c3e1ffe425cbdc35a47.jpg",
+          "https://course_report_production.s3.amazonaws.com/rich/rich_files/rich_files/2186/s300/course-report-profile-photo-800px-by-800px.jpg",
         Uber:
           "http://www.oaklandpost.org/wp-content/uploads/2017/10/636247599789125010-1013090754_Uber-pic.jpg",
         Lyft:
-          "http://tcyk.com.au/thumbs/space_4-d0cc460260af0c3e1ffe425cbdc35a47.jpg",
+          "https://commonwealthmagazine.org/wp-content/uploads/2016/12/lyft.jpg",
         IBM:
-          "http://tcyk.com.au/thumbs/space_4-d0cc460260af0c3e1ffe425cbdc35a47.jpg"
+          "https://zdnet4.cbsistatic.com/hub/i/r/2017/04/25/63e1fffa-04e9-47ce-ac2a-bebfe0cd4c09/resize/770xauto/f797a7a91df9767962db9e0489abc734/ibm-abyss.png"
       }
     };
   },
@@ -243,6 +243,32 @@ var ShowPost = {
           this.body = "";
         }.bind(this)
       );
+    },
+    linkify: function(inputText) {
+      var replacedText, replacePattern1, replacePattern2, replacePattern3;
+
+      //URLs starting with http://, https://, or ftp://
+      replacePattern1 = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
+      replacedText = inputText.replace(
+        replacePattern1,
+        '<a href="$1" target="_blank">$1</a>'
+      );
+
+      //URLs starting with "www." (without // before it, or it'd re-link the ones done above).
+      replacePattern2 = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
+      replacedText = replacedText.replace(
+        replacePattern2,
+        '$1<a href="http://$2" target="_blank">$2</a>'
+      );
+
+      //Change email addresses to mailto:: links.
+      replacePattern3 = /(([a-zA-Z0-9\-\_\.])+@[a-zA-Z\_]+?(\.[a-zA-Z]{2,6})+)/gim;
+      replacedText = replacedText.replace(
+        replacePattern3,
+        '<a href="mailto:$1">$1</a>'
+      );
+
+      return replacedText;
     }
   },
   computed: {}
